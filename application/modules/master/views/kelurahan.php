@@ -6,4 +6,8 @@
       <div class="panel-body">
             Panel content
       </div>
+
+      <div>
+            <p>Test Edit</p>
+      </div>
 </div>
