@@ -13,9 +13,17 @@ class Address extends MX_Controller {
 
     public function provinsi()
     {
-        $data['content_detail']="master/provinsi";
+        $data['content_detail']="master/province/provinsi";
         $data['content']="master/nav-primary";
         $data['title']="Master Provinsi";
+        $this->load->view('layout/main',$data);
+    }
+
+    public function addProvinsi(){
+        $data['content_detail']="master/province/addProvinsi";
+        $data['content']="master/nav-primary";
+        $data['title']="Tambah Provinsi";
+        $data['javascript'] = 'province/addProvinceJs';
         $this->load->view('layout/main',$data);
     }
 

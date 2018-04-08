@@ -7,6 +7,7 @@
     <?php $this->load->view('/layout/common/nav-top');?>
     </div>
     <?php $this->load->view($content); ?>
+    <?php $this->load->view('/layout/javascript');?>
 </body>
 
 </html>

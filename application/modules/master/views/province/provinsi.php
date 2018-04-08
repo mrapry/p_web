@@ -7,18 +7,11 @@
       	<div class="row">
             <div class="col-md-12">
                 <div class="btn-group pull-right">
-                    <a href="/master/address/add_provinsi">
+                    <a href="/master/address/addProvinsi">
                         <button class="btn btn-primary" type="button">
                             <span class="fa fa-plus"></span> Tambah Data
                         </button>
                     </a>
-                </div>
-                <!-- <span>Total Record</span> -->
-                <div class="btn-group pull-right hidden">
-                    <button class="btn btn-primary" type="button">
-                        <span class="fa fa-print"></span> Print</button>
-                    <button class="btn btn-primary" type="button">
-                        <span class="fa fa-table"></span> Export</button>
                 </div>
             </div>
          </div>
@@ -41,16 +34,16 @@
             var table = $('#example').DataTable({
                 dom: 'Bfrtip',
                 ajax: {
-                    url: '/assets/json/provinsi.json',
-                    dataSrc: 'wilayah.provinsi',
+                    url: '<?php echo base_url()?>/master/province/getProvince',
+                    dataSrc: 'content',
                     processing: true,
                 },
                 columns: [
                 {
-                    "data": "provinsiKode"
+                    "data": "code"
                 },
                 {
-                    "data": "provinsiNama"
+                    "data": "name"
                 },
                 { 
                     data: null,
@@ -63,5 +56,5 @@
                 ]
             });
 
-        });              
+        });
     </script>
