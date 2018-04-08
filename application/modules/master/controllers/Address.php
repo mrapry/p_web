@@ -8,7 +8,7 @@ class Address extends MX_Controller {
         $data['content_detail']="master/negara";
         $data['content']="master/nav-primary";
         $data['title']="Master Negara";
-        $this->load->view('layout/main',$data);
+        $this->load->view('layout/main', $data);
     }
 
     public function provinsi()
@@ -16,7 +16,7 @@ class Address extends MX_Controller {
         $data['content_detail']="master/province/provinsi";
         $data['content']="master/nav-primary";
         $data['title']="Master Provinsi";
-        $this->load->view('layout/main',$data);
+        $this->load->view('layout/main', $data);
     }
 
     public function addProvinsi(){
@@ -32,7 +32,7 @@ class Address extends MX_Controller {
         $data['content_detail']="master/kota";
         $data['content']="master/nav-primary";
         $data['title']="Master Kota";
-        $this->load->view('layout/main',$data);
+        $this->load->view('layout/main', $data);
     }
 
     public function kecamatan()
@@ -40,7 +40,7 @@ class Address extends MX_Controller {
         $data['content_detail']="master/kecamatan";
         $data['content']="master/nav-primary";
         $data['title']="Master Kecamatan";
-        $this->load->view('layout/main',$data);
+        $this->load->view('layout/main', $data);
     }
 
     public function kelurahan()
@@ -48,7 +48,7 @@ class Address extends MX_Controller {
         $data['content_detail']="master/kelurahan";
         $data['content']="master/nav-primary";
         $data['title']="Master Kelurahan";
-        $this->load->view('layout/main',$data);
+        $this->load->view('layout/main', $data);
     }
 
 }
