@@ -29,10 +29,18 @@ class Address extends MX_Controller {
 
     public function kota()
     {
-        $data['content_detail']="master/kota";
+        $data['content_detail']="master/city/kota";
         $data['content']="master/nav-primary";
         $data['title']="Master Kota";
         $this->load->view('layout/main', $data);
+    }
+
+    public function addKota(){
+        $data['content_detail']="master/city/addCity";
+        $data['content']="master/nav-primary";
+        $data['title']="Tambah Kota";
+        $data['javascript'] = 'city/addCityJs';
+        $this->load->view('layout/main',$data);
     }
 
     public function kecamatan()
