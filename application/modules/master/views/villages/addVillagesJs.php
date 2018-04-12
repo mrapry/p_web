@@ -1,7 +1,7 @@
 <script>
     // Document ready
     $(function () {
-        setProvinsi();
+        setKecamatan();
     })
 
     function show_notif(tipe, message){
@@ -14,23 +14,23 @@
         $("#respon_server").show('slow');
     }
     
-    function setProvinsi() {
+    function setKecamatan() {
         $.ajax({
             type: "GET",
-            url: "/master/province/getProvince?size=34",
+            url: "/master/district/getDistrict",
             success: function (data) {
                 var result  = JSON.parse(data);
 
                 console.log(result);
 
                 //bersihkan dropdown
-                $("#provinsi_id option").remove();
-                $("#provinsi_id").append('<option>Pilih Provinsi</option>')
+                $("#kecamatan_id option").remove();
+                $("#kecamatan_id").append('<option>Pilih Kecamatan</option>')
 
-                // looping get provinsi
+                // looping get District
                 $.each(result.content, function (index, value) {
                     // console.log(result.content[index].name);
-                    $("#provinsi_id").append(
+                    $("#kecamatan_id").append(
                         '<option value="'+result.content[index].id+'">'+result.content[index].name+'</option>'
                     )
                 })
@@ -45,8 +45,8 @@
         var data = {
             code : code,
             name : name,
-            province : {
-                id : $("#provinsi_id").val()
+            district : {
+                id : $("#kecamatan_id").val()
             }
         }
 
@@ -58,7 +58,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/master/city/saveCity",
+            url: "/master/villages/saveVillages",
             dataType: "json",
             data:dataSend,
             success: function (data) {

@@ -31,7 +31,7 @@ class Address extends MX_Controller {
     {
         $data['content_detail']="master/city/kota";
         $data['content']="master/nav-primary";
-        $data['title']="Master Kota";
+        $data['title']="Master Kabupaten/Kota";
         $this->load->view('layout/main', $data);
     }
 
@@ -45,18 +45,36 @@ class Address extends MX_Controller {
 
     public function kecamatan()
     {
-        $data['content_detail']="master/kecamatan";
+        $data['content_detail']="master/district/kecamatan";
         $data['content']="master/nav-primary";
         $data['title']="Master Kecamatan";
         $this->load->view('layout/main', $data);
     }
 
+    public function addKecamatan()
+    {
+        $data['content_detail']="master/district/addDistrict";
+        $data['content']="master/nav-primary";
+        $data['title']="Tambah Kecamatan";
+        $data['javascript'] = 'district/addDistrictJs';
+        $this->load->view('layout/main',$data);
+    }
+
     public function kelurahan()
     {
-        $data['content_detail']="master/kelurahan";
+        $data['content_detail']="master/villages/kelurahan";
         $data['content']="master/nav-primary";
         $data['title']="Master Kelurahan";
         $this->load->view('layout/main', $data);
+    }
+
+    public function addKelurahan()
+    {
+        $data['content_detail']="master/villages/addVillages";
+        $data['content']="master/nav-primary";
+        $data['title']="Tambah Kelurahan";
+        $data['javascript'] = 'villages/addVillagesJs';
+        $this->load->view('layout/main',$data);
     }
 
 }

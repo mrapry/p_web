@@ -11,26 +11,24 @@
         <div class="row">
             <div class="col-md-12">
                 <form>
-                    <div class="form-group">
-                        <label>Provinsi</label>
-                        <select name="provinsi_id" id="provinsi_id" class="form-control">
-                        </select>
+                <div class="form-group">
+                        <label>Kab/Kota</label>
+                        <select name="kota_id" id="kota_id" class="form-control"></select>
                     </div>
                     <div class="form-group">
-                        <label>Kode Kab/Kota</label>
-                        <input type="text" class="form-control" id="code" name="code" placeholder="Kode Kab/Kota">
+                        <label>Kode </label>
+                        <input type="text" class="form-control" id="code" name="code" placeholder="Kode Kecamatan">
                     </div>
                     <div class="form-group">
-                        <label>Nama Kab/Kota</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama Kab/Kota">
+                        <label>Nama Kecamatan</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama Kecamatan">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary pull-right" type="button" onclick="save();">Simpan Data</button>
-                        <button class="btn btn-default pull-right" type="button" onclick="window.location = '<?php echo base_url()?>master/address/kota'">Batal</button>
+                        <button class="btn btn-default pull-right" type="button" onclick="window.location = '<?php echo base_url()?>master/address/kecamatan'">Batal</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-

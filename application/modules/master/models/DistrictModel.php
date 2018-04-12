@@ -12,12 +12,11 @@ use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 
-
-class ProvinceModel extends CI_Model
+class DistrictModel extends CI_Model 
 {
     public function __construct()
     {
-
+        
     }
 
     public function get()
@@ -25,7 +24,7 @@ class ProvinceModel extends CI_Model
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/province?size=34";
+        $requestUri.="/district";
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -35,8 +34,11 @@ class ProvinceModel extends CI_Model
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/province";
+        $requestUri.="/district";
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
         return $data;
     }
+
 }
+
+/* End of file DistrictModel.php */
