@@ -12,12 +12,11 @@ use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 
-
-class CityModel extends CI_Model
+class CityModel extends CI_Model 
 {
     public function __construct()
     {
-
+        
     }
 
     public function get()
@@ -39,4 +38,7 @@ class CityModel extends CI_Model
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
         return $data;
     }
+
 }
+
+/* End of file CityModel.php */
