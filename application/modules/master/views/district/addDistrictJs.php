@@ -1,10 +1,11 @@
 <script>
     // Document ready
-    $(function () {
+    $(function(){
         setKota();
     })
 
-    function show_notif(tipe, message){
+    function show_notif(tipe, message)
+    {
         if(tipe == 201 || tipe == 200){
             $("#respon_server").attr('class','alert alert-success');
         } else {
@@ -14,22 +15,20 @@
         $("#respon_server").show('slow');
     }
     
-    function setKota() {
+    function setKota()
+    {
         $.ajax({
             type: "GET",
             url: "/master/city/getCity",
             success: function (data) {
                 var result  = JSON.parse(data);
 
-                console.log(result);
-
                 //bersihkan dropdown
                 $("#kota_id option").remove();
-                $("#kota_id").append('<option>Pilih Kab/Kota</option>')
+                $("#kota_id").append('<option>Pilih Kab / Kota</option>')
 
                 // looping get city
-                $.each(result.content, function (index, value) {
-                    // console.log(result.content[index].name);
+                $.each(result.content, function (index, value){
                     $("#kota_id").append(
                         '<option value="'+result.content[index].id+'">'+result.content[index].name+'</option>'
                     )

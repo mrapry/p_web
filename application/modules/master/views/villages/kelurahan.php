@@ -1,4 +1,3 @@
-
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title"><?php echo $title?></h3>
@@ -31,7 +30,7 @@
 </div>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function(){
         var table = $('#example').DataTable({
             dom: 'Bfrtip',
             ajax: {

@@ -20,7 +20,7 @@
                         <input type="text" class="form-control" id="name" name="name" placeholder="Nama Provinsi">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary pull-right" type="button" onclick="simpanData();">Simpan Data</button>
+                        <button class="btn btn-primary pull-right" type="button" onclick="save();">Simpan Data</button>
                         <button class="btn btn-default pull-right" type="button" onclick="window.location = '<?php echo base_url()?>master/address/provinsi'">Batal</button>
                     </div>
                 </form>

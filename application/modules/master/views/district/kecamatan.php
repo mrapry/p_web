@@ -21,7 +21,7 @@
                 <tr>
                     <th>Kode</th>
                     <th>Nama Kecamatan</th>
-                    <th>Kab/Kota</th>
+                    <th>Kab / Kota</th>
                     <th>Action</th>
                 </tr>
                 </thead>

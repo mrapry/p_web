@@ -9,7 +9,8 @@
         $("#respon_server").show('slow');
     }
 
-    function simpanData() {
+    function save() 
+    {
         var code = $("#code").val();
         var name = $("#name").val();
 

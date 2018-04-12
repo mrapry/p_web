@@ -12,7 +12,7 @@
             <div class="col-md-12">
                 <form>
                 <div class="form-group">
-                        <label>Kab/Kota</label>
+                        <label>Nama Kab / Kota</label>
                         <select name="kota_id" id="kota_id" class="form-control"></select>
                     </div>
                     <div class="form-group">
