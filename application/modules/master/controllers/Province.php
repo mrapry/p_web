@@ -21,4 +21,17 @@ class Province extends MX_Controller
         $p = $this->province->post($data);
         echo json_encode($p);
     }
+
+    public function editProvince()
+    {
+        $data = $this->input->post('data');
+        $p = $this->province->put($data);
+        echo json_encode($p);
+    }
+
+    public function deleteProvince(){
+        $data = $this->input->post('data');
+        $p = $this->province->delete($data);
+        echo json_encode($p);
+    }
 }

@@ -4,6 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Address extends MX_Controller
 {
 
+    public function __construct()
+    {
+        $this->load->model("ProvinceModel", "province");
+    }
+
     public function index()
     {
         $data['content_detail']="master/negara";
@@ -26,6 +31,16 @@ class Address extends MX_Controller
         $data['content']="master/nav-primary";
         $data['title']="Tambah Provinsi";
         $data['javascript'] = 'province/addProvinceJs';
+        $this->load->view('layout/main',$data);
+    }
+
+    public function editProvinsi($id = null)
+    {
+        $data['content_detail']="master/province/editProvinsi";
+        $data['content']="master/nav-primary";
+        $data['title']="Edit Provinsi";
+        $data['javascript'] = 'province/editProvinsiJs';
+        $data['provinsi'] = $this->province->getById($id);
         $this->load->view('layout/main',$data);
     }
 

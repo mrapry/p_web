@@ -9,12 +9,14 @@
         $("#respon_server").show('slow');
     }
 
-    function save() 
+    function edit()
     {
+        var id = <?php echo $provinsi->data->id;?>;
         var code = $("#code").val();
         var name = $("#name").val();
 
         var data = {
+            id:id,
             code : code,
             name : name
         }
@@ -23,17 +25,14 @@
             data : JSON.stringify(data)
         }
 
+        console.log(dataSend);
         $.ajax({
             type: "POST",
-            url: "/master/province/saveProvince",
-            dataType: "json",
+            url: "/master/province/editProvince",
             data:dataSend,
             success: function (data) {
+                var data = JSON.parse(data);
                 show_notif(data.code, data.message);
-                if (data.code==200 || data.code==201) {
-                    $("#code").val("");
-                    $("#name").val("");
-                }
             }
         })
     }

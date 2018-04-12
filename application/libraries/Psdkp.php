@@ -87,7 +87,7 @@ class Psdkp{
         }
         return $data;
     }
-    public function deleteData($requestUri, $toArray = false)
+    public function deleteData($requestUri, $body, $toArray = false)
     {
         $data = [];
         $session = $this->session->userdata();
@@ -103,7 +103,7 @@ class Psdkp{
             }
         } else {
             try {
-                $response = $client->delete($requestUri, ['http_errors' => false, 'read_timeout' => 3, 'timeout' => 30]);
+                $response = $client->delete($requestUri, ['json' => $body, 'http_errors' => false, 'read_timeout' => 3, 'timeout' => 30]);
                 $data = json_decode($response->getBody()->getContents(), $toArray);
             } catch (ConnectException $e) {
                 $data = [];

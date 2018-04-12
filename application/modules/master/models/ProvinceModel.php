@@ -30,6 +30,17 @@ class ProvinceModel extends CI_Model
         return $data;
     }
 
+    public function getById($id = "")
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri.="/province?id=".$id;
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
+
     public function post($payload)
     {
         $data = [];
@@ -39,4 +50,26 @@ class ProvinceModel extends CI_Model
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
         return $data;
     }
+
+    public function put($payload)
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri.="/province";
+        $data = $this->psdkp->putData($requestUri, json_decode($payload));
+        return $data;
+    }
+
+    public function delete($payload)
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri.="/province/del";
+        $data = $this->psdkp->deleteData($requestUri, json_decode($payload));
+        return $data;
+    }
+
+
 }
