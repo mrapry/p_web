@@ -1,7 +1,8 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Address extends MX_Controller {
+class Address extends MX_Controller
+{
 
     public function index()
     {
@@ -19,7 +20,8 @@ class Address extends MX_Controller {
         $this->load->view('layout/main', $data);
     }
 
-    public function addProvinsi(){
+    public function addProvinsi()
+    {
         $data['content_detail']="master/province/addProvinsi";
         $data['content']="master/nav-primary";
         $data['title']="Tambah Provinsi";
@@ -31,11 +33,12 @@ class Address extends MX_Controller {
     {
         $data['content_detail']="master/city/kota";
         $data['content']="master/nav-primary";
-        $data['title']="Master Kabupaten/Kota";
+        $data['title']="Master Kabupaten / Kota";
         $this->load->view('layout/main', $data);
     }
 
-    public function addKota(){
+    public function addKota()
+    {
         $data['content_detail']="master/city/addCity";
         $data['content']="master/nav-primary";
         $data['title']="Tambah Kota";

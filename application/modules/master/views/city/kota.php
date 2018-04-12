@@ -20,7 +20,7 @@
                 <thead>
                 <tr>
                     <th>Kode</th>
-                    <th>Nama Kota / Kabupaten</th>
+                    <th>Nama Kab / Kota</th>
                     <th>Provinsi</th>
                     <th>Action</th>
                 </tr>

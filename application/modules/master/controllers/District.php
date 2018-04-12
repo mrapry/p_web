@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class District extends MX_Controller{
+class District extends MX_Controller
+{
 
     public function __construct()
     {

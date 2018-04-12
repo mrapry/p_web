@@ -30,7 +30,7 @@
 </div>
 
  <script>
-          $(document).ready(function () {
+          $(document).ready(function(){
             var table = $('#example').DataTable({
                 dom: 'Bfrtip',
                 ajax: {

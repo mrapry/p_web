@@ -17,12 +17,12 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Kode Kab/Kota</label>
-                        <input type="text" class="form-control" id="code" name="code" placeholder="Kode Kab/Kota">
+                        <label>Kode Kab / Kota</label>
+                        <input type="text" class="form-control" id="code" name="code" placeholder="Kode Kab / Kota">
                     </div>
                     <div class="form-group">
-                        <label>Nama Kab/Kota</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama Kab/Kota">
+                        <label>Nama Kab / Kota</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama Kab / Kota">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary pull-right" type="button" onclick="save();">Simpan Data</button>

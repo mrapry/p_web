@@ -1,8 +1,8 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class City extends MX_Controller {
+class City extends MX_Controller 
+{
 
     public function __construct()
     {
@@ -19,7 +19,7 @@ class City extends MX_Controller {
     {
         $data = $this->input->post('data');
         $p = $this->city->post($data);
-        echo json_encode ($p);
+        echo json_encode($p);
     }
 
 }

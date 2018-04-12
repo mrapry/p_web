@@ -25,7 +25,7 @@ class ProvinceModel extends CI_Model
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/province?size=34";
+        $requestUri.="/province";
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
