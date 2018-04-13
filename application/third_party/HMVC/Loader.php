@@ -70,7 +70,7 @@ class HMVC_Loader extends CI_Loader {
      *
      * This function lets users load and hierarchical controllers to enable HMVC support
      *
-     * @param	string	the uri to the controller
+     * @param	string	the uri to the controllers
      * @param	array	parameters for the requested method
      * @param	boolean return the result instead of showing it
      * @return	void
@@ -89,7 +89,7 @@ class HMVC_Loader extends CI_Loader {
         // Add module
         $this->add_module($module);
 
-        // Execute the controller method and capture output
+        // Execute the controllers method and capture output
         $void = $this->_load_controller($uri, $params, $return);
 
         // Remove module
@@ -420,13 +420,13 @@ class HMVC_Loader extends CI_Loader {
     private function _load_controller($uri = '', $params = array(), $return = FALSE) {
         $router = & $this->_ci_get_component('router');
 
-        // Back up current router values (before loading new controller)
+        // Back up current router values (before loading new controllers)
         $backup = array();
         foreach (array('directory', 'class', 'method', 'module') as $prop) {
             $backup[$prop] = $router->{$prop};
         }
 
-        // Locate the controller
+        // Locate the controllers
         $segments = $router->locate(explode('/', $uri));
         $class = isset($segments[0]) ? $segments[0] : FALSE;
         $method = isset($segments[1]) ? $segments[1] : "index";
@@ -440,7 +440,7 @@ class HMVC_Loader extends CI_Loader {
             // Determine filepath
             $filepath = APPPATH . 'controllers/' . $router->fetch_directory() . $class . '.php';
 
-            // Load the controller file
+            // Load the controllers file
             if (file_exists($filepath)) {
                 include_once ($filepath);
             }
@@ -450,7 +450,7 @@ class HMVC_Loader extends CI_Loader {
                 show_404("{$class}/{$method}");
             }
 
-            // Create a controller object
+            // Create a controllers object
             $this->_ci_controllers[strtolower($class)] = new $class();
         }
 
@@ -480,7 +480,7 @@ class HMVC_Loader extends CI_Loader {
         // Close buffer and flush output to screen
         ob_end_flush();
 
-        // Return controller return value
+        // Return controllers return value
         return $result;
     }
 

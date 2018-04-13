@@ -48,7 +48,7 @@ class MX_Loader extends CI_Loader
 
 		if ($controller instanceof MX_Controller)
 		{
-			/* reference to the module controller */
+			/* reference to the module controllers */
 			$this->controller = $controller;
 
 			/* references to ci loader variables */
@@ -242,7 +242,7 @@ class MX_Loader extends CI_Loader
 		return $this;
 	}
 
-	/** Load a module controller **/
+	/** Load a module controllers **/
 	public function module($module, $params = NULL)
 	{
 		if (is_array($module)) return $this->modules($module);

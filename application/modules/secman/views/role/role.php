@@ -67,7 +67,7 @@
                     data: "",
                     className: "center",
                     render: function (data, type, full) {
-                        return '<a href="<?php echo base_url()?>secman/home/editRole/'+full.id+'" class=" editor_edit">Edit</a> / <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')">Delete</a>';
+                        return '<a href="<?php echo base_url()?>secman/home/editRole/'+full.id+'" class=" editor_edit">Edit</a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')">Delete</a>';
                     }
                 }
             ],

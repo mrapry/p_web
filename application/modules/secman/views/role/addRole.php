@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary pull-right" type="button" onclick="save();">Update Data</button>
-                        <button class="btn btn-default pull-right" type="button" onclick="window.location = '<?php echo base_url()?>secman/home/roleGroupUser'">Kembali</button>
+                        <button class="btn btn-default pull-right" type="button" onclick="window.location = '<?php echo base_url()?>secman/home/roleGroup'">Kembali</button>
                     </div>
                 </form>
             </div>
