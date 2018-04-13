@@ -46,7 +46,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                 <button type="button" class="btn btn-primary" id="btnHapus" onclick="hapus()" data-dismiss="modal">Setuju</button>
             </div>
-        </div>x
+        </div>
     </div>
 </div>
 
@@ -108,7 +108,6 @@
             data : JSON.stringify(data)
         }
 
-        console.log(dataSend);
         $.ajax({
             type: "POST",
             url: "/master/province/deleteProvince",
