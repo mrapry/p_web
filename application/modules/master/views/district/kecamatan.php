@@ -36,7 +36,7 @@
             dom: 'Bfrtip',
             ajax: {
                 url: '<?php echo base_url()?>/master/district/getDistrict',
-                dataSrc: 'content',
+                dataSrc: 'data.content',
                 processing: true,
             },
             columns: [

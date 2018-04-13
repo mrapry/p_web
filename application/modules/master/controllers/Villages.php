@@ -21,6 +21,20 @@ class Villages extends MX_Controller
         $p = $this->villages->post($data);
         echo json_encode($p);
     }
+
+    public function editVillages()
+    {
+        $data= $this->input->post('data');
+        $p = $this->villages->put($data);
+        echo json_encode($p);
+    }
+
+    public function deleteVillages()
+    {
+        $data = $this->input->post('data');
+        $p = $this->villages->delete($data);
+        echo json_encode($p);
+    }
 }
 
 /* End of file Villages.php */

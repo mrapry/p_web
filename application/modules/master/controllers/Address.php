@@ -7,6 +7,7 @@ class Address extends MX_Controller
     public function __construct()
     {
         $this->load->model("ProvinceModel", "province");
+        $this->load->model("VillagesModel", "villages");
     }
 
     public function index()
@@ -41,7 +42,7 @@ class Address extends MX_Controller
         $data['title']="Edit Provinsi";
         $data['javascript'] = 'province/editProvinsiJs';
         $data['provinsi'] = $this->province->getById($id);
-        $this->load->view('layout/main',$data);
+        $this->load->view('layout/main', $data);
     }
 
     public function kota()
@@ -58,7 +59,7 @@ class Address extends MX_Controller
         $data['content']="master/nav-primary";
         $data['title']="Tambah Kota";
         $data['javascript'] = 'city/addCityJs';
-        $this->load->view('layout/main',$data);
+        $this->load->view('layout/main', $data);
     }
 
     public function kecamatan()
@@ -92,8 +93,19 @@ class Address extends MX_Controller
         $data['content']="master/nav-primary";
         $data['title']="Tambah Kelurahan";
         $data['javascript'] = 'villages/addVillagesJs';
-        $this->load->view('layout/main',$data);
+        $this->load->view('layout/main', $data);
     }
+
+    public function editKelurahan($id = null)
+    {
+        $data['content_detail']="master/villages/editVillages";
+        $data['content']="master/nav-primary";
+        $data['title']="Edit Kelurahan";
+        $data['javascript'] = 'villages/editVillagesJs';
+        $data['kelurahan'] = $this->villages->getById($id);
+        $this->load->view('layout/main', $data);
+    }
+
 
 }
 
