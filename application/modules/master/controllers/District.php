@@ -22,6 +22,20 @@ class District extends MX_Controller
         echo json_encode($p);
     }
 
+    public function editDistrict()
+    {
+        $data = $this->input->post('data');
+        $p = $this->district->put($data);
+        echo json_encode($p);
+    }
+
+    public function deleteDistrict()
+    {
+        $data = $this->input->post('data');
+        $p = $this->district->delete($data);
+        echo json_encode($p);
+    }
+
 }
 
 /* End of file District.php */
