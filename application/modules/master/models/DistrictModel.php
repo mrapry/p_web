@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 /**
  * Created by PhpStorm.
  * User: matius
@@ -12,11 +13,11 @@ use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 
-class DistrictModel extends CI_Model 
+class DistrictModel extends CI_Model
 {
     public function __construct()
     {
-        
+
     }
 
     public function get()
@@ -24,7 +25,17 @@ class DistrictModel extends CI_Model
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/district";
+        $requestUri .= "/district";
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
+    public function getById($id = "")
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri .= "/district?id=" . $id;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -34,8 +45,28 @@ class DistrictModel extends CI_Model
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/district";
+        $requestUri .= "/district";
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
+        return $data;
+    }
+
+    public function put($payload)
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri .= "/district";
+        $data = $this->psdkp->putData($requestUri, json_decode($payload));
+        return $data;
+    }
+
+    public function delete($payload)
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri .= "/district/del";
+        $data = $this->psdkp->deleteData($requestUri, json_decode($payload));
         return $data;
     }
 

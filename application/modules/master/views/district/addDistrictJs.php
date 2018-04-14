@@ -28,9 +28,9 @@
                 $("#kota_id").append('<option>Pilih Kab / Kota</option>')
 
                 // looping get city
-                $.each(result.content, function (index, value){
+                $.each(result.data.content, function (index, value){
                     $("#kota_id").append(
-                        '<option value="'+result.content[index].id+'">'+result.content[index].name+'</option>'
+                        '<option value="'+result.data.content[index].id+'">'+result.data.content[index].name+'</option>'
                     )
                 })
             }
