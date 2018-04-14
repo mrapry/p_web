@@ -53,8 +53,6 @@
             data : JSON.stringify(data)
         }
 
-        console.log(dataSend);
-
         $.ajax({
             type: "POST",
             url: "/master/district/saveDistrict",

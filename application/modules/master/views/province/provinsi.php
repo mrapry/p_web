@@ -35,7 +35,7 @@
 <div class="modal fade" tabindex="-1" role="dialog" id="model_remove">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-danger">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Hapus Provinsi</h4>
             </div>
@@ -46,7 +46,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                 <button type="button" class="btn btn-primary" id="btnHapus" onclick="hapus()" data-dismiss="modal">Setuju</button>
             </div>
-        </div>x
+        </div>
     </div>
 </div>
 
@@ -70,7 +70,7 @@
                     data: "",
                     className: "center",
                     render: function (data, type, full) {
-                        return '<a href="<?php echo base_url()?>master/address/editProvinsi/'+full.id+'" class=" editor_edit">Edit</a> / <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')">Delete</a>';
+                        return '<a href="<?php echo base_url()?>master/address/editProvinsi/'+full.id+'" class=" editor_edit">Edit</a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')">Delete</a>';
                     }
                 }
             ],
@@ -108,7 +108,6 @@
             data : JSON.stringify(data)
         }
 
-        console.log(dataSend);
         $.ajax({
             type: "POST",
             url: "/master/province/deleteProvince",

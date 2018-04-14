@@ -29,6 +29,16 @@ class CityModel extends CI_Model
         return $data;
     }
 
+    public function getById($id = "")
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri.="/city?id=".$id;
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
     public function post($payload)
     {
         $data = [];

@@ -50,7 +50,7 @@ class Modules
 	public static $routes, $registry, $locations;
 	
 	/**
-	* Run a module controller method
+	* Run a module controllers method
 	* Output from module is buffered and returned.
 	**/
 	public static function run($module) 
@@ -74,34 +74,34 @@ class Modules
 			}
 		}
 		
-		log_message('error', "Module controller failed to run: {$module}/{$method}");
+		log_message('error', "Module controllers failed to run: {$module}/{$method}");
 	}
 	
-	/** Load a module controller **/
+	/** Load a module controllers **/
 	public static function load($module) 
 	{
 		(is_array($module)) ? list($module, $params) = each($module) : $params = NULL;	
 		
-		/* get the requested controller class name */
+		/* get the requested controllers class name */
 		$alias = strtolower(basename($module));
 
-		/* create or return an existing controller from the registry */
+		/* create or return an existing controllers from the registry */
 		if ( ! isset(self::$registry[$alias])) 
 		{
-			/* find the controller */
+			/* find the controllers */
 			list($class) = CI::$APP->router->locate(explode('/', $module));
 	
-			/* controller cannot be located */
+			/* controllers cannot be located */
 			if (empty($class)) return;
 	
 			/* set the module directory */
 			$path = APPPATH.'controllers/'.CI::$APP->router->directory;
 			
-			/* load the controller class */
+			/* load the controllers class */
 			$class = $class.CI::$APP->config->item('controller_suffix');
 			self::load_file(ucfirst($class), $path);
 			
-			/* create and register the new controller */
+			/* create and register the new controllers */
 			$controller = ucfirst($class);	
 			self::$registry[$alias] = new $controller($params);
 		}

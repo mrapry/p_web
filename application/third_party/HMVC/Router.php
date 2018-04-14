@@ -79,7 +79,7 @@ class HMVC_Router extends CI_Router {
 
     /**
      * Validates the supplied segments.  Attempts to determine the path to
-     * the controller.
+     * the controllers.
      *
      * @access	private
      * @param	array
@@ -90,7 +90,7 @@ class HMVC_Router extends CI_Router {
             return $segments;
         }
 
-        // Locate the controller with modules support
+        // Locate the controllers with modules support
         if ($located = $this->locate($segments)) {
             return $located;
         }
@@ -144,7 +144,7 @@ class HMVC_Router extends CI_Router {
     }
 
     /**
-     * The logic of locating a controller is grouped in this function
+     * The logic of locating a controllers is grouped in this function
      *
      * @param	array
      * @return	array
@@ -177,7 +177,7 @@ class HMVC_Router extends CI_Router {
                 $this->module = $module;
                 $this->directory = $relative . $module . '/controllers/';
 
-                // Module root controller?
+                // Module root controllers?
                 if ($directory && is_file($source . $_ucfirst($directory) . '.php')) {
                     $this->class = $directory;
                     return array_slice($segments, 1);
@@ -188,29 +188,29 @@ class HMVC_Router extends CI_Router {
                     $source = $source . $directory . '/';
                     $this->directory .= $directory . '/';
 
-                    // Module sub-directory controller?
+                    // Module sub-directory controllers?
                     if (is_file($source . $_ucfirst($directory) . '.php')) {
                         return array_slice($segments, 1);
                     }
 
-                    // Module sub-directory  default controller?
+                    // Module sub-directory  default controllers?
                     if (is_file($source . $_ucfirst($this->default_controller) . '.php')) {
                         $segments[1] = $this->default_controller;
                         return array_slice($segments, 1);
                     }
 
-                    // Module sub-directory sub-controller?
+                    // Module sub-directory sub-controllers?
                     if ($controller && is_file($source . $_ucfirst($controller) . '.php')) {
                         return array_slice($segments, 2);
                     }
                 }
 
-                // Module controller?
+                // Module controllers?
                 if (is_file($source . $_ucfirst($module) . '.php')) {
                     return $segments;
                 }
 
-                // Module default controller?
+                // Module default controllers?
                 if (is_file($source . $_ucfirst($this->default_controller) . '.php')) {
                     $segments[0] = $this->default_controller;
                     return $segments;
@@ -218,18 +218,18 @@ class HMVC_Router extends CI_Router {
             }
         }
 
-        // Root folder controller?
+        // Root folder controllers?
         if (is_file(APPPATH . 'controllers/' . $_ucfirst($module) . '.php')) {
             return $segments;
         }
 
-        // Sub-directory controller?
+        // Sub-directory controllers?
         if ($directory && is_file(APPPATH . 'controllers/' . $module . '/' . $_ucfirst($directory) . '.php')) {
             $this->directory = $module . '/';
             return array_slice($segments, 1);
         }
 
-        // Default controller?
+        // Default controllers?
         if (is_file(APPPATH . 'controllers/' . $module . '/' . $_ucfirst($this->default_controller) . '.php')) {
             $segments[0] = $this->default_controller;
             return $segments;
@@ -247,9 +247,9 @@ class HMVC_Router extends CI_Router {
     }
 
     /**
-     * Set default controller
+     * Set default controllers
      *
-     * First we check in normal APPPATH/controller's location,
+     * First we check in normal APPPATH/controllers's location,
      * then in Modules named after the default_controller
      * @author  hArpanet - based on system/core/Router.php
      *
@@ -257,25 +257,25 @@ class HMVC_Router extends CI_Router {
      */
     protected function _set_default_controller()
     {
-        // controller in APPPATH/controllers takes priority over module with same name
+        // controllers in APPPATH/controllers takes priority over module with same name
         parent::_set_default_controller();
 
-        // see if parent found a controller
+        // see if parent found a controllers
         $class = $this->fetch_class();
 
         if (empty($class)) {
 
-            // no 'normal' controller found,
+            // no 'normal' controllers found,
             // get the class/method from the default_controller route
             if (sscanf($this->default_controller, '%[^/]/%s', $class, $method) !== 2)
             {
                 $method = 'index';
             }
 
-            // try to locate default controller in modules
+            // try to locate default controllers in modules
             if ($located = $this->locate(array($class, $class, $method))) {
 
-                log_message('debug', 'No URI present. Default module controller set.');
+                log_message('debug', 'No URI present. Default module controllers set.');
             }
         }
 

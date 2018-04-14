@@ -1,30 +1,33 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-/**
- * Created by PhpStorm.
- * User: matius
- * Date: 08/04/18
- * Time: 20.55
- */
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 
-class VillagesModel extends CI_Model 
-{
+class UserModel extends CI_Model {
+
     public function __construct()
     {
-        
     }
-    
+
     public function get()
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri.= "/subDistrict";
+        $requestUri = $this->config->item("psdkp_account");
+        $requestUri.="/account";
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
+    public function getStatus($status = null)
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_account");
+        $requestUri.="/account?status=".$status;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -33,8 +36,8 @@ class VillagesModel extends CI_Model
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/subDistrict?id=".$id;
+        $requestUri = $this->config->item("psdkp_account");
+        $requestUri.="/account?id=".$id;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -44,8 +47,18 @@ class VillagesModel extends CI_Model
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri.= "/subDistrict";
+        $requestUri = $this->config->item("psdkp_account");
+        $requestUri.="/account";
+        $data = $this->psdkp->postData($requestUri, json_decode($payload));
+        return $data;
+    }
+
+    public function postUpdateStatus($payload)
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_account");
+        $requestUri.="/account/status";
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
         return $data;
     }
@@ -54,8 +67,8 @@ class VillagesModel extends CI_Model
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/subDistrict";
+        $requestUri = $this->config->item("psdkp_account");
+        $requestUri.="/account";
         $data = $this->psdkp->putData($requestUri, json_decode($payload));
         return $data;
     }
@@ -64,10 +77,9 @@ class VillagesModel extends CI_Model
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/subDistrict/del";
+        $requestUri = $this->config->item("psdkp_account");
+        $requestUri.="/account/del";
         $data = $this->psdkp->deleteData($requestUri, json_decode($payload));
         return $data;
     }
-
 }

@@ -9,6 +9,7 @@ class Address extends MX_Controller
         $this->load->model("ProvinceModel", "province");
         $this->load->model("CityModel", "city");
         $this->load->model("DistrictModel", "district");
+        $this->load->model("VillagesModel", "villages");
     }
 
     public function index()
@@ -116,6 +117,17 @@ class Address extends MX_Controller
         $data['javascript'] = 'villages/addVillagesJs';
         $this->load->view('layout/main', $data);
     }
+
+    public function editKelurahan($id = null)
+    {
+        $data['content_detail']="master/villages/editVillages";
+        $data['content']="master/nav-primary";
+        $data['title']="Edit Kelurahan";
+        $data['javascript'] = 'villages/editVillagesJs';
+        $data['kelurahan'] = $this->villages->getById($id);
+        $this->load->view('layout/main', $data);
+    }
+
 
 }
 
