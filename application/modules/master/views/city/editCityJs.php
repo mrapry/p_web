@@ -1,8 +1,11 @@
 <script>
-    // Document ready
+
     $(function () {
         setProvinsi();
+        $('#provinsi_id').attr("readonly", true);
     })
+
+    var idProvinsi = <?php echo $city->data->province->id; ?>;
 
     function show_notif(tipe, message) {
         if (tipe == 201 || tipe == 200) {
@@ -23,45 +26,52 @@
 
                 //bersihkan dropdown
                 $("#provinsi_id option").remove();
-                $("#provinsi_id").append('<option>Pilih Provinsi</option>')
+                // $("#provinsi_id").append('<option>Pilih Provinsi</option>')
 
                 // looping get provinsi
                 $.each(result.data.content, function (index, value) {
-                    $("#provinsi_id").append(
-                        '<option value="' + result.data.content[index].id + '">' + result.data.content[index].name + '</option>'
-                    )
+                    if (idProvinsi === result.data.content[index].id) {
+                        $("#provinsi_id").append(
+                            '<option value="' + result.data.content[index].id + '" selected>' + result.data.content[index].name + '</option>'
+                        )
+                    } else {
+                        $("#provinsi_id").append(
+                            '<option value="' + result.data.content[index].id + '">' + result.data.content[index].name + '</option>'
+                        )
+                    }
+
                 })
             }
         })
     }
 
-    function save() {
+    function edit() {
+        var id = <?php echo $city->data->id;?>;
         var code = $("#code").val();
         var name = $("#name").val();
 
         var data = {
+            id: id,
             code: code,
             name: name,
             province: {
                 id: $("#provinsi_id").val()
             }
+
         }
 
         var dataSend = {
             data: JSON.stringify(data)
         }
 
-        console.log("simpan kota: " + dataSend);
-
+        console.log(dataSend);
         $.ajax({
             type: "POST",
-            url: "/master/city/saveCity",
-            dataType: "json",
+            url: "/master/city/editCity",
             data: dataSend,
             success: function (data) {
-                show_notif(200, data.message);
-                $("#code").val("");
-                $("#name").val("");
+                var data = JSON.parse(data);
+                show_notif(data.code, data.message);
             }
         })
     }
