@@ -1,8 +1,11 @@
 <script>
     // Document ready
     $(function () {
-        setProvinsi();
+        setKota();
+        $('#kota_id').attr("readonly", true);
     })
+
+    var kotaId = <?php echo $district->data->city->id; ?>;
 
     function show_notif(tipe, message) {
         if (tipe == 201 || tipe == 200) {
@@ -14,36 +17,43 @@
         $("#respon_server").show('slow');
     }
 
-    function setProvinsi() {
+    function setKota() {
         $.ajax({
             type: "GET",
-            url: "/master/province/getProvince",
+            url: "/master/city/getCity",
             success: function (data) {
                 var result = JSON.parse(data);
 
                 //bersihkan dropdown
-                $("#provinsi_id option").remove();
-                $("#provinsi_id").append('<option>Pilih Provinsi</option>')
+                $("#kota_id option").remove();
 
-                // looping get provinsi
+                // looping get city
                 $.each(result.data.content, function (index, value) {
-                    $("#provinsi_id").append(
-                        '<option value="' + result.data.content[index].id + '">' + result.data.content[index].name + '</option>'
-                    )
+                    if (kotaId === result.data.content[index].id) {
+                        $("#kota_id").append(
+                            '<option value="' + result.data.content[index].id + '">' + result.data.content[index].name + '</option>'
+                        )
+                    } else {
+                        $("#kota_id").append(
+                            '<option value="' + result.data.content[index].id + '">' + result.data.content[index].name + '</option>'
+                        )
+                    }
                 })
             }
         })
     }
 
-    function save() {
+    function edit() {
+        var id = <?php echo $district->data->id; ?>;
         var code = $("#code").val();
         var name = $("#name").val();
 
         var data = {
+            id: id,
             code: code,
             name: name,
-            province: {
-                id: $("#provinsi_id").val()
+            city: {
+                id: $("#kota_id").val()
             }
         }
 
@@ -51,17 +61,16 @@
             data: JSON.stringify(data)
         }
 
-        console.log("simpan kota: " + dataSend);
+        console.log("datasend: " + dataSend);
 
         $.ajax({
             type: "POST",
-            url: "/master/city/saveCity",
+            url: "/master/district/editDistrict",
             dataType: "json",
             data: dataSend,
             success: function (data) {
+                console.log(data);
                 show_notif(200, data.message);
-                $("#code").val("");
-                $("#name").val("");
             }
         })
     }

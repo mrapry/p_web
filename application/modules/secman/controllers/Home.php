@@ -24,7 +24,7 @@ class Home extends MX_Controller {
         $this->load->view('layout/main',$data);
     }
 
-    public function roleGroupUser()
+    public function roleGroup()
     {
         $data['content_detail']="secman/role/role";
         $data['content']="secman/nav-primary";
