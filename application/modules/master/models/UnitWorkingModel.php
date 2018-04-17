@@ -40,6 +40,16 @@ class UnitWorkingModel extends CI_Model {
         return $data;
     }
 
+    public function getByTypeUnit($type = null)
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_areas");
+        $requestUri.= "/unitWorking?typeUnitId=".$type;
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
     public function post($payload)
     {
         $data = [];

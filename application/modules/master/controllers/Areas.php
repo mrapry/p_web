@@ -77,21 +77,10 @@ class Areas extends MX_Controller
     {
         $data['content_detail']="master/mapping/addMapping";
         $data['content']="master/nav-areas";
-        $data['title']="Tambah Unit Kerja";
-        $data['javascript'] = 'mapping/addUnitWorkingJs';
+        $data['title']="Tambah Mapping Unit Kerja";
+        $data['javascript'] = 'mapping/addMappingJs';
         $this->load->view('layout/main', $data);
     }
-
-    public function editMapping ()
-    {
-        $data['content_detail']="master/mapping/editMapping";
-        $data['content']="master/nav-areas";
-        $data['title']="Tambah Unit Kerja";
-        $data['javascript'] = 'mapping/addUnitWorkingJs';
-        $data['mapping'] = $this->type->getById($id);
-        $this->load->view('layout/main', $data);
-    }
-
 }
 
 /* End of file Areas.php */

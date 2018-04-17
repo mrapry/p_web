@@ -7,6 +7,7 @@ class Mapping extends MX_Controller {
     public function __construct()
     {
         $this->load->model("MappingModel", "mapping");
+        $this->load->model("UnitWorkingModel", "unitWorking");
     }
 
     public function getMapping()
@@ -33,6 +34,16 @@ class Mapping extends MX_Controller {
     {
         $data = $this->input->post('data');
         $p = $this->mapping->delete($data);
+        echo json_encode($p);
+    }
+
+    public function getUnitWorkingById($type = null){
+        $p = $this->unitWorking->getByTypeUnit($type);
+        echo json_encode($p);
+    }
+
+    public function getMappingByParrent($id = null){
+        $p = $this->mapping->getByParrent($id);
         echo json_encode($p);
     }
 
