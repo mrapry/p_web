@@ -20,4 +20,6 @@ $config['psdkp_title'] = 'Pengawasan Sumber Daya Kelautan dan Perikanan';
 */
 
 $config['psdkp_address'] = getenv('PSDKP_API_LOCAL').'/address';
+$config['psdkp_areas'] = getenv('PSDKP_API_LOCAL').'/areas';
 $config['psdkp_account'] = getenv('PSDKP_API_LOCAL').'/secman';
+$config['psdkp_vessel'] = getenv('PSDKP_API_LOCAL').'/vesselData';
