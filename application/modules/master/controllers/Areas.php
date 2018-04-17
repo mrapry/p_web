@@ -8,6 +8,7 @@ class Areas extends MX_Controller
     {
         $this->load->model("TypeUnitModel", "type");
         $this->load->model("UnitWorkingModel", "unit");
+        $this->load->model("MappingModel", "mapping");
     }
 
     public function index()
@@ -61,6 +62,33 @@ class Areas extends MX_Controller
         $data['title']="Edit Unit Kerja";
         $data['javascript'] = 'typeUnit/editTypeUnitJs';
         $data['typeUnit'] = $this->type->getById($id);
+        $this->load->view('layout/main', $data);
+    }
+
+    public function mapping()
+    {
+        $data['content_detail']="master/mapping/mapping";
+        $data['content']="master/nav-areas";
+        $data['title']="Mapping Unit Kerja";
+        $this->load->view('layout/main', $data);
+    }
+
+    public function addMappping()
+    {
+        $data['content_detail']="master/mapping/addMapping";
+        $data['content']="master/nav-areas";
+        $data['title']="Tambah Unit Kerja";
+        $data['javascript'] = 'mapping/addUnitWorkingJs';
+        $this->load->view('layout/main', $data);
+    }
+
+    public function editMapping ()
+    {
+        $data['content_detail']="master/mapping/editMapping";
+        $data['content']="master/nav-areas";
+        $data['title']="Tambah Unit Kerja";
+        $data['javascript'] = 'mapping/addUnitWorkingJs';
+        $data['mapping'] = $this->type->getById($id);
         $this->load->view('layout/main', $data);
     }
 
