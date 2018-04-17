@@ -20,7 +20,8 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Master <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url() ?>master/address">Address</a></li>
-            <li><a href="<?php echo base_url() ?>master/kapal_ikan">Kapal Ikan</a></li>
+            <li><a href="<?php echo base_url() ?>master/areas">Unit Kerja</a></li>
+            <li><a href="<?php echo base_url() ?>master/vesselData">Kapal Ikan</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Static Content</a></li>
           </ul>

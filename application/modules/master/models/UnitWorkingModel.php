@@ -13,8 +13,8 @@ use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 
-class CityModel extends CI_Model
-{
+class UnitWorkingModel extends CI_Model {
+
     public function __construct()
     {
 
@@ -24,8 +24,8 @@ class CityModel extends CI_Model
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri .= "/city";
+        $requestUri = $this->config->item("psdkp_areas");
+        $requestUri.= "/unitWorking";
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -34,8 +34,8 @@ class CityModel extends CI_Model
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/city?id=".$id;
+        $requestUri = $this->config->item("psdkp_areas");
+        $requestUri.= "/unitWorking?id=".$id;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -44,8 +44,8 @@ class CityModel extends CI_Model
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri .= "/city";
+        $requestUri = $this->config->item("psdkp_areas");
+        $requestUri.= "/unitWorking";
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
         return $data;
     }
@@ -54,8 +54,8 @@ class CityModel extends CI_Model
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri .= "/city";
+        $requestUri = $this->config->item("psdkp_areas");
+        $requestUri.= "/unitWorking";
         $data = $this->psdkp->putData($requestUri, json_decode($payload));
         return $data;
     }
@@ -64,12 +64,11 @@ class CityModel extends CI_Model
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_address");
-        $requestUri .= "/city/del";
+        $requestUri = $this->config->item("psdkp_areas");
+        $requestUri.= "/unitWorking/del";
         $data = $this->psdkp->deleteData($requestUri, json_decode($payload));
         return $data;
     }
-
 }
 
-/* End of file CityModel.php */
+/* End of file UnitWorkingModel.php */

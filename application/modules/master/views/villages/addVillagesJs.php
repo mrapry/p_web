@@ -26,9 +26,9 @@
                 $("#kecamatan_id").append('<option>Pilih Kecamatan</option>')
 
                 // looping get District
-                $.each(result.content, function (index, value){
+                $.each(result.data.content, function (index, value){
                     $("#kecamatan_id").append(
-                        '<option value="'+result.content[index].id+'">'+result.content[index].name+'</option>'
+                        '<option value="'+ result.data.content[index].id+'">'+result.data.content[index].name+'</option>'
                     )
                 })
             }
