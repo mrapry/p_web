@@ -38,7 +38,7 @@ class Mapping extends MX_Controller {
     }
 
     public function getUnitWorkingById($type = null){
-        $p = $this->unitWorking->getByTypeUnit($type);
+        $p = $this->unitWorking->getByTypeUnit($id);
         echo json_encode($p);
     }
 

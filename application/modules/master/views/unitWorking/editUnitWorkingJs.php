@@ -26,6 +26,7 @@ $(function () {
 
                 //bersihkan dropdown
                 $("#type_id option").remove();
+                $("#tipe_id").append('<option>Pilih Tipe</option>')
 
                 // looping get Unit Working
                 $.each(result.data.content, function (index, value) {
@@ -43,8 +44,7 @@ $(function () {
         })
     }
 
-    function edit()
-    {
+    function edit(){
         var id = <?php echo $unitWorking->data->id;?>;
         var code = $("#code").val();
         var name = $("#name").val();
@@ -71,13 +71,12 @@ $(function () {
                 id : $("#type_id").val()
             }
         }
-
+        
         var dataSend = {
             data : JSON.stringify(data)
         }
 
-        console.log("datasend: " + dataSend);
-
+        console.log(dataSend);
         $.ajax({
             type: "POST",
             url: "/master/unitWorking/editUnit",

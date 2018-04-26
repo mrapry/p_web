@@ -12,16 +12,12 @@
             <div class="col-md-12">
                 <form>
                     <div class="form-group">
-                        <label>Kode Province</label>
-                        <input type="text" class="form-control" id="code" name="code" placeholder="Kode Provinsi">
-                    </div>
-                    <div class="form-group">
-                        <label>Nama Province</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama Provinsi">
+                        <label>Nama Sarana</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama Sarana">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary pull-right" type="button" onclick="save();">Simpan Data</button>
-                        <button class="btn btn-default pull-right" type="button" onclick="window.location = '<?php echo base_url()?>master/address/provinsi'">Kembali</button>
+                        <button class="btn btn-default pull-right" type="button" onclick="window.location = '<?php echo base_url()?>master/areas/facilities'">Kembali</button>
                     </div>
                 </form>
             </div>

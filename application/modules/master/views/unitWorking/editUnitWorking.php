@@ -13,7 +13,7 @@
                 <form>
                     <div class="form-group col-md-12">
                         <label>Tipe Unit Kerja</label>
-                        <select name="type_id" id="type_id" class="form-control"value="<?php echo $unitType->data->id;?>"></select>
+                        <select name="type_id" id="type_id" class="form-control"value="<?php echo $unitType->data->type;?>"></select>
                     </div>
                     <div class="form-group col-md-12">
                         <label>Kode Unit Kerja</label>
@@ -33,23 +33,23 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label>Faksimail</label>
-                        <input type="text" class="form-control" id="faxmail" name="faxmail" placeholder="Nama Unit Kerja" value="<?php echo $unitWorking->data->faxmail;?>">
+                        <input type="text" class="form-control" id="faxmail" name="faxmail" placeholder="Faximail" value="<?php echo $unitWorking->data->faxmail;?>">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Email</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="Nama Unit Kerja" value="<?php echo $unitWorking->data->email;?>">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $unitWorking->data->email;?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Langitude</label>
-                        <input type="text" class="form-control" id="langitude" name="langitude" placeholder="Nama Unit Kerja" value="<?php echo $unitWorking->data->langitude;?>">
+                        <label>Latitude</label>
+                        <input type="text" class="form-control" id="langitude" name="langitude" placeholder="Latitude" value="<?php echo $unitWorking->data->langitude;?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label>Longitude</label>
-                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Nama Unit Kerja" value="<?php echo $unitWorking->data->longitude;?>">
+                        <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Longitude" value="<?php echo $unitWorking->data->longitude;?>">
                     </div>
                     <div class="form-group col-md-12">
                         <label>Alamat Pelayanan</label>
-                        <input type="text" class="form-control" id="serviceLocation" name="serviceLocation" placeholder="Nama Unit Kerja" value="<?php echo $unitWorking->data->serviceLocation;?>">
+                        <input type="text" class="form-control" id="serviceLocation" name="serviceLocation" placeholder="Alamat Pelayanan" value="<?php echo $unitWorking->data->serviceLocation;?>">
                     </div>
                     <div class="form-group col-md-12">
                         <button class="btn btn-primary pull-right" type="button" onclick="edit();">Update Data</button>
