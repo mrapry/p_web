@@ -11,6 +11,7 @@ class Province extends MX_Controller
 
     public function getProvince()
     {
+        isAjax();
         $p = $this->province->get();
         echo json_encode($p);
     }
