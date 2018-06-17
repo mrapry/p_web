@@ -61,16 +61,22 @@
             },
             columns: [
                 {
-                    "data": "code"
+                    data: "",
+                    render: function (data, type, full) {
+                        return encodeURI(full.code);
+                    }
                 },
                 {
-                    "data": "name"
+                    data: "",
+                    render: function (data, type, full) {
+                        return encodeURI(full.name);
+                    }
                 },
                 {
                     data: "",
                     className: "center",
                     render: function (data, type, full) {
-                        return '<a href="<?php echo base_url()?>master/address/editProvinsi/'+full.id+'" class=" editor_edit">Edit</a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')">Delete</a>';
+                        return '<a href="<?php echo base_url()?>master/address/editProvinsi/'+encodeURI(full.id)+'" class=" editor_edit">Edit</a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\''+encodeURI(full.name)+'\',\''+encodeURI(full.id)+'\')">Delete</a>';
                     }
                 }
             ],
