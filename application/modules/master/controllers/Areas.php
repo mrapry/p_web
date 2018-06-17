@@ -9,6 +9,8 @@ class Areas extends MX_Controller
         $this->load->model("TypeUnitModel", "type");
         $this->load->model("UnitWorkingModel", "unit");
         $this->load->model("MappingModel", "mapping");
+        $this->load->model("InfrastructureModel", "infrastructure");
+        $this->load->model("FacilitiesModel", "facilities");
     }
 
     public function index()
@@ -81,6 +83,61 @@ class Areas extends MX_Controller
         $data['javascript'] = 'mapping/addMappingJs';
         $this->load->view('layout/main', $data);
     }
+
+    public function infrastructure()
+    {
+        $data['content_detail'] = "master/infrastructure/infrastructure";
+        $data['content'] = "master/nav-areas";
+        $data['title'] = "Data Prasarana";
+        $this->load->view('layout/main', $data);
+    }
+
+    public function addInfrastructure()
+    {
+        $data['content_detail'] = "master/infrastructure/addInfrastructure";
+        $data['content'] = "master/nav-areas";
+        $data['title'] = "Tambah Prasarana";
+        $data['javascript'] = 'infrastructure/addInfrastructureJs';
+        $this->load->view('layout/main', $data);
+    }
+    
+    public function editInfrastructure($id = null)
+    {
+        $data['content_detail'] = "master/infrastructure/editInfrastructure";
+        $data['content'] = "master/nav-areas";
+        $data['title'] = "Edit Prasarana";
+        $data['javascript'] = 'infrastructure/editInfrastructureJs';
+        $data['infrastructure'] = $this->infrastructure->getById($id);        
+        $this->load->view('layout/main', $data);
+    }
+
+    public function facilities()
+    {
+        $data['content_detail'] = "master/facilities/facilities";
+        $data['content'] = "master/nav-areas";
+        $data['title'] = "Data Sarana";
+        $this->load->view('layout/main', $data);
+    }
+
+    public function addFacilities()
+    {
+        $data['content_detail'] = "master/facilities/addFacilities";
+        $data['content'] = "master/nav-areas";
+        $data['title'] = "Tambah Sarana";
+        $data['javascript'] = 'Facilities/addFacilitiesJs';
+        $this->load->view('layout/main', $data);
+    }
+    
+    public function editFacilities($id = null)
+    {
+        $data['content_detail'] = "master/facilities/editFacilities";
+        $data['content'] = "master/nav-areas";
+        $data['title'] = "Edit Sarana";
+        $data['javascript'] = 'facilities/editFacilitiesJs';
+        $data['facilities'] = $this->facilities->getById($id);        
+        $this->load->view('layout/main', $data);
+    }
+
 }
 
 /* End of file Areas.php */

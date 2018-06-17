@@ -1,31 +1,20 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * Created by PhpStorm.
- * User: matius
- * Date: 08/04/18
- * Time: 20.55
- */
-
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Uri;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ConnectException;
-
-class UnitWorkingModel extends CI_Model {
+class VesselTypeModel extends CI_Model {
 
     public function __construct()
     {
 
     }
 
-    public function get()
+    public function get ()
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking";
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/vesselType";
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -34,8 +23,8 @@ class UnitWorkingModel extends CI_Model {
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking?id=".$id;
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/vesselType?id=".$id;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -44,8 +33,8 @@ class UnitWorkingModel extends CI_Model {
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking";
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/vesselType";
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
         return $data;
     }
@@ -54,8 +43,8 @@ class UnitWorkingModel extends CI_Model {
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking";
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/vesselType";
         $data = $this->psdkp->putData($requestUri, json_decode($payload));
         return $data;
     }
@@ -64,11 +53,12 @@ class UnitWorkingModel extends CI_Model {
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking/del";
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/vesselType/del";
         $data = $this->psdkp->deleteData($requestUri, json_decode($payload));
         return $data;
     }
+
 }
 
-/* End of file UnitWorkingModel.php */
+/* End of file VesselTypeModel.php */

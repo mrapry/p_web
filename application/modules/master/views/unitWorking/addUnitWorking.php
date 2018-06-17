@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label>Langitude</label>
-                        <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Latitude">
+                        <input type="text" class="form-control" id="langitude" name="langitude" placeholder="Latitude">
                     </div>
                     <div class="form-group col-md-6">
                         <label>Longitude</label>

@@ -40,6 +40,23 @@
     </div>
 </div>
 
+<div class="modal fade" tabindex="-1" role="dialog" id="model_remove">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Hapus Unit Kerja</h4>
+            </div>
+            <div class="modal-body">
+                <p>Apakah anda setuju menghapus Unit Kerja<br><br><strong><b id="dataUnitWorking"></b></strong></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary" id="btnHapus" onclick="hapus()" data-dismiss="modal">Setuju</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     $(document).ready(function () {
@@ -58,28 +75,36 @@
                     "data": "name"
                 },
                 {
-                    "data": "address"
+                    "data": "address",
+                    "visible": false
                 },
                 {
-                    "data": "phone"
+                    "data": "phone",
+                    "visible": false
                 },
                 {
-                    "data": "faxmail"
+                    "data": "faxmail",
+                    "visible": false
                 },
                 {
-                    "data": "email"
+                    "data": "email",
+                    "visible": false
                 },
                 {
-                    "data": "langitude"
+                    "data": "langitude",
+                    "visible": false
                 },
                 {
-                    "data": "longitude"
+                    "data": "longitude",
+                    "visible": false
                 },
                 {
-                    "data": "typeUnit.type"
+                    "data": "typeUnit.type",
+                    "visible": false
                 },
                 {
-                    "data": "serviceLocation"
+                    "data": "serviceLocation",
+                    "visible" : false
                 },
                 {
                     data: "",
@@ -95,5 +120,47 @@
         });
 
     });
+
+    function showModalRemove(unitWorking, id) {
+        $("#dataUnitWorking").html(unitWorking);
+        $("#btnHapus").attr('onclick', 'hapus("'+id+'")');
+        $("#model_remove").modal('show');
+    }
+
+    function show_notif(tipe, message){
+        if(tipe == 201 || tipe == 200){
+            $("#respon_server").attr('class','alert alert-success');
+        } else {
+            $("#respon_server").attr('class','alert alert-danger');
+        }
+        $("#respon_server .message").html(message);
+        $("#respon_server").show('slow');
+    }
+
+    function hapus(id) {
+        var id = id;
+
+        var data = {
+            id:id
+        }
+
+        var dataSend = {
+            data : JSON.stringify(data)
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/master/unitWorking/deleteUnitWorking",
+            data:dataSend,
+            success: function (data) {
+                var data = JSON.parse(data);
+                show_notif(data.code, data.message);
+                setTimeout(function () {
+                    location.reload();
+                }, 3000);
+            }
+        })
+    }
+
 
 </script>

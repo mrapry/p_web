@@ -13,7 +13,7 @@ use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 
-class UnitWorkingModel extends CI_Model {
+class GearTypeModel extends CI_Model {
 
     public function __construct()
     {
@@ -23,9 +23,9 @@ class UnitWorkingModel extends CI_Model {
     public function get()
     {
         $data = [];
-        $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking";
+        $session_user = ;
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/gearType";
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -34,8 +34,8 @@ class UnitWorkingModel extends CI_Model {
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking?id=".$id;
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/gearType?id=".$id;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -44,8 +44,8 @@ class UnitWorkingModel extends CI_Model {
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking";
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/gearType";
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
         return $data;
     }
@@ -54,8 +54,8 @@ class UnitWorkingModel extends CI_Model {
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking";
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/gearType";
         $data = $this->psdkp->putData($requestUri, json_decode($payload));
         return $data;
     }
@@ -64,11 +64,12 @@ class UnitWorkingModel extends CI_Model {
     {
         $data = [];
         $session_user = $this->session->userdata();
-        $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking/del";
+        $requestUri = $this->config->item("psdkp_vessel");
+        $requestUri.="/gearType/del";
         $data = $this->psdkp->deleteData($requestUri, json_decode($payload));
         return $data;
     }
+
 }
 
-/* End of file UnitWorkingModel.php */
+/* End of file GearTypeModel.php */
