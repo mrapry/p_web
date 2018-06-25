@@ -1,6 +1,6 @@
 version: '2'
 services:
-  php-apache:
+  www:
     image: webdevops/php-apache-dev
     container_name: psdkp-www
     volumes:
@@ -9,9 +9,25 @@ services:
       - 80:80
     environment:
       WEB_DOCUMENT_ROOT: /app/public
-      WEB_ALIAS_DOMAIN: psdkp.local
+      WEB_ALIAS_DOMAIN: localhost
       PHP_DEBUGGER: xdebug
       XDEBUG_REMOTE_CONNECT_BACK: 0
       XDEBUG_REMOTE_ENABLE: 1
       XDEBUG_REMOTE_AUTOSTART: 1
-      
+  db:
+    image: mysql:5.7.13
+    container_name: psdkp-db  
+    ports: 
+        - "3306:3306"
+    environment:
+        MYSQL_DATABASE: db_psdkp
+        MYSQL_USER: user
+        MYSQL_PASSWORD: root
+        MYSQL_ROOT_PASSWORD: root
+    volumes:
+        - ./dump:/docker-entrypoint-initdb.d
+        - persistent:/var/lib/mysql
+    networks:
+        - default
+volumes:
+    persistent:

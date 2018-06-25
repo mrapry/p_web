@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Master Alamat</h3>
+            <div class="block">
+                <div class="header">
+                    <h2>Master Alamat</h2>
                 </div>
-                <div class="list-group np">
+                <div class="content np">
                     <a href="<?php echo base_url()?>master/address/" class="list-group-item">Negara</a>
                     <a href="<?php echo base_url()?>master/address/provinsi" class="list-group-item">Provinsi</a>
                     <a href="<?php echo base_url()?>master/address/kota" class="list-group-item">Kabupaten / Kota</a>
