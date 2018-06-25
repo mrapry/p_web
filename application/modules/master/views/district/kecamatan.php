@@ -3,34 +3,26 @@
     <p class="message"></p>
 </div>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title"><?php echo $title?></h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btn-group pull-right">
-                    <a href="/master/address/addKecamatan">
-                        <button class="btn btn-primary" type="button">
-                            <span class="fa fa-plus"></span> Tambah Data
-                        </button>
-                    </a>
-                </div>
-            </div>
+<div class="block">
+    <div class="header">
+        <h2><?php echo $title?></h2>
+        <div class="side pull-right">
+            <ul class="buttons">
+                <li><a href="/master/address/addKecamatan"><span class="icon-plus"></span> Tambah Kecamatan</a></li>
+            </ul>
         </div>
-        <div class="row np-lr">
-            <table id="tbl_district" class="display responsive nowrap table" cellspacing="0" width="100%">
-                <thead>
+    </div>
+    <div class="content">
+        <table id="tbl_district" class="display responsive nowrap table" cellspacing="0" width="100%">
+            <thead>
                 <tr>
-                    <th>Kode</th>
+                    <th class="col-md-2">Kode</th>
                     <th>Nama Kecamatan</th>
                     <th>Kab / Kota</th>
-                    <th>Action</th>
+                    <th class="col-md-2">Action</th>
                 </tr>
-                </thead>
-            </table>
-        </div>
+            </thead>
+        </table>
     </div>
 </div>
 
@@ -75,7 +67,7 @@
                     data: "",
                     className: "center",
                     render: function (data, type, full) {
-                        return '<a href="<?php echo base_url()?>master/address/editKecamatan/'+full.id+'" class=" editor_edit">Edit</a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')">Delete</a>';
+                        return '<a href="<?php echo base_url()?>master/address/editKecamatan/'+full.id+'" class=" editor_edit"><span class="icon-edit"></span></a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')"><span class="icon-trash"></span></a>';
                     }
                 }
             ],
