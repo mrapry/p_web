@@ -14,7 +14,7 @@ class Address extends MX_Controller
 
     public function index()
     {
-        $data['content_detail'] = "master/negara";
+        $data['content_detail'] = "master/province/provinsi";
         $data['content'] = "master/nav-primary";
         $data['title'] = "Master Negara";
         $this->load->view('layout/main', $data);

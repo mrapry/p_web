@@ -5,14 +5,19 @@
 <div class="block">
     <div class="header">
         <h2><?php echo $title ?></h2>
+        <div class="side pull-right">
+            <ul class="buttons">
+                <li><a href="/master/address/addProvinsi"><span class="icon-plus"></span> Tambah Provinsi</a></li>
+            </ul>
+        </div>
     </div>
     <div class="content">
         <table id="example" class="display responsive nowrap table" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Kode Provinsi</th>
+                    <th class="col-md-2">Kode Provinsi</th>
                     <th>Nama Provinsi</th>
-                    <th>Action</th>
+                    <th class="col-md-2">Action</th>
                 </tr>
             </thead>
         </table>
@@ -50,20 +55,20 @@
             {
                 data: "",
                 render: function (data, type, full) {
-                    return encodeURI(full.code);
+                    return full.code;
                 }
             },
             {
                 data: "",
                 render: function (data, type, full) {
-                    return encodeURI(full.name);
+                    return full.name;
                 }
             },
             {
                 data: "",
                 className: "center",
                 render: function (data, type, full) {
-                    return '<a href="<?php echo base_url()?>master/address/editProvinsi/'+encodeURI(full.id)+'" class=" editor_edit">Edit</a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\''+encodeURI(full.name)+'\',\''+encodeURI(full.id)+'\')">Delete</a>';
+                    return '<a href="<?php echo base_url()?>master/address/editProvinsi/'+encodeURI(full.id)+'" class=" editor_edit"><span class="icon-edit"></span></a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\''+encodeURI(full.name)+'\',\''+encodeURI(full.id)+'\')"><span class="icon-trash"></span></a>';
                 }
             }
             ],

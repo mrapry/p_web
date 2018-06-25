@@ -1,68 +1,38 @@
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">
-            <?php echo $title?>
-        </h3>
+<div class="alert alert-success" role="alert" id="respon_server" style="display: none">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <p class="message"></p>
+</div>
+<div class="block">
+       <div class="header">
+           <h2><?php echo $title?></h2>
+       </div>
+    <div class="content">
+        <table id="example" class="display responsive nowrap table" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+        </table>
     </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btn-group pull-right">
-                    <button class="btn btn-primary" type="button">
-                        <span class="fa fa-plus"></span> Tambah Data</button>
-                </div>
-                <!-- <span>Total Record</span> -->
-                <div class="btn-group pull-right hidden">
-                    <button class="btn btn-primary" type="button">
-                        <span class="fa fa-print"></span> Print</button>
-                    <button class="btn btn-primary" type="button">
-                        <span class="fa fa-table"></span> Export</button>
-                </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="model_remove">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Hapus Negara</h4>
             </div>
-        </div>
-        <div class="row np-lr hidden">
-            <table class="table table-hover table-striped table-bordered">
-
-                <head>
-                    <tr class="info">
-                        <th style="width:50px">No</th>
-                        <th>Nama Negara</th>
-                        <th>Bendera</th>
-                        <th>ISO</th>
-                        <th class="col-md-2"></th>
-                    </tr>
-                </head>
-
-                <body>
-                    <tr>
-                        <td>1</td>
-                        <td>Indonesia</td>
-                        <td></td>
-                        <td>01.01.01</td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-warning btn-xs">
-                                    <span class="fa fa-pencil"></span> Edit</button>
-                                <button class="btn btn-danger btn-xs">
-                                    <span class="fa fa-recycle"></span> Hapus</button>
-                            </div>
-                        </td>
-                    </tr>
-                </body>
-            </table>
-        </div>
-        <div class="row np-lr">
-            <table id="example" class="display responsive nowrap table" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th>Code</th>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+            <div class="modal-body">
+                <p>Apakah anda setuju menghapus Negara<br><br><strong><b id="dataProvinsi"></b></strong></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary" id="btnHapus" onclick="hapus()" data-dismiss="modal">Setuju</button>
+            </div>
         </div>
     </div>
 </div>
