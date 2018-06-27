@@ -47,7 +47,6 @@
 <script>
     $(document).ready(function () {
         var table = $('#tbl_district').DataTable({
-            dom: 'Bfrtip',
             ajax: {
                 url: '<?php echo base_url()?>/master/district/getDistrict',
                 dataSrc: 'data.content',

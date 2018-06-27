@@ -50,7 +50,6 @@
 <script>
     $(document).ready(function () {
         var table = $('#tbl_city').DataTable({
-            dom: 'Bfrtip',
             ajax: {
                 url: '<?php echo base_url()?>/master/city/getCity',
                 dataSrc: 'data.content',

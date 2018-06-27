@@ -45,7 +45,6 @@
 <script>
     $(document).ready(function(){
         var table = $('#example').DataTable({
-            dom: 'Bfrtip',
             ajax: {
                 url: '<?php echo base_url()?>/master/villages/getVillages',
                 dataSrc: 'data.content',
