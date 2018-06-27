@@ -61,16 +61,14 @@
             data: JSON.stringify(data)
         }
 
-        console.log("datasend: " + dataSend);
-
+        console.log(dataSend);
         $.ajax({
             type: "POST",
             url: "/master/district/editDistrict",
-            dataType: "json",
             data: dataSend,
             success: function (data) {
-                console.log(data);
-                show_notif(200, data.message);
+               var data = JSON.parse(data);
+                show_notif(data.code, data.message);
             }
         })
     }

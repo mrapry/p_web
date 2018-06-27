@@ -9,8 +9,7 @@
         $("#respon_server").show('slow');
     }
 
-    function edit()
-    {
+    function edit() {
         var id = <?php echo $provinsi->data->id;?>;
         var code = $("#code").val();
         var name = $("#name").val();
