@@ -26,7 +26,6 @@
 
                 //bersihkan dropdown
                 $("#provinsi_id option").remove();
-                // $("#provinsi_id").append('<option>Pilih Provinsi</option>')
 
                 // looping get provinsi
                 $.each(result.data.content, function (index, value) {

@@ -8,5 +8,6 @@
     <script type='text/javascript' src='<?php echo asset("js/plugins/jquery/jquery.min.js")?>'></script>
     <script type='text/javascript' src='<?php echo asset("js/plugins/jquery/jquery-ui.min.js")?>'></script>
     <script type='text/javascript' src='<?php echo asset("js/plugins/bootstrap/bootstrap.min.js")?>'></script>
+    <script type='text/javascript' src='<?php echo asset("js/validator.js")?>'></script>
     <script type='text/javascript' src='<?php echo asset("js/plugins/datatables/jquery.dataTables.min.js")?>'></script>
 </head>

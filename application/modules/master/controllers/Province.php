@@ -18,6 +18,7 @@ class Province extends MX_Controller
 
     public function saveProvince()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->province->post($data);
         echo json_encode($p);
@@ -25,6 +26,7 @@ class Province extends MX_Controller
 
     public function editProvince()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->province->put($data);
         echo json_encode($p);
@@ -32,6 +34,7 @@ class Province extends MX_Controller
 
     public function deleteProvince()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->province->delete($data);
         echo json_encode($p);

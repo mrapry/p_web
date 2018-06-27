@@ -15,12 +15,14 @@ class City extends MX_Controller
      */
     public function getCity()
     {
+        isAjax();
         $p = $this->city->get();
         echo json_encode($p);
     }
 
     public function saveCity()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->city->post($data);
         echo json_encode($p);
@@ -28,6 +30,7 @@ class City extends MX_Controller
 
     public function editCity()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->city->put($data);
         echo json_encode($p);
@@ -35,6 +38,7 @@ class City extends MX_Controller
 
     public function deleteCity()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->city->delete($data);
         echo json_encode($p);

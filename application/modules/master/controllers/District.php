@@ -11,12 +11,14 @@ class District extends MX_Controller
 
     public function getDistrict()
     {
+        isAjax();
         $p = $this->district->get();
         echo json_encode($p);
     }
 
     public function saveDistrict()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->district->post($data);
         echo json_encode($p);
@@ -24,6 +26,7 @@ class District extends MX_Controller
 
     public function editDistrict()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->district->put($data);
         echo json_encode($p);
@@ -31,6 +34,7 @@ class District extends MX_Controller
 
     public function deleteDistrict()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->district->delete($data);
         echo json_encode($p);

@@ -11,12 +11,14 @@ class Villages extends MX_Controller
 
     public function getVillages()
     {
+        isAjax();
         $p = $this->villages->get();
         echo json_encode($p);
     }
 
     public function saveVillages()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->villages->post($data);
         echo json_encode($p);
@@ -24,6 +26,7 @@ class Villages extends MX_Controller
 
     public function editVillages()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->villages->put($data);
         echo json_encode($p);
@@ -31,6 +34,7 @@ class Villages extends MX_Controller
 
     public function deleteVillages()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->villages->delete($data);
         echo json_encode($p);
