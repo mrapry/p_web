@@ -23,7 +23,7 @@
 
                 //bersihkan dropdown
                 $("#provinsi_id option").remove();
-                $("#provinsi_id").append('<option>Pilih Provinsi</option>')
+                $("#provinsi_id").append('<option value="">Pilih Provinsi</option>')
 
                 // looping get provinsi
                 $.each(result.data.content, function (index, value) {
@@ -40,6 +40,7 @@
         } else {
             var code = $("#code").val();
             var name = $("#name").val();
+            var provinceId = $("#provinsi_id").val();
 
             var data = {
                 code: code,
@@ -55,19 +56,23 @@
 
             console.log("simpan kota: " + dataSend);
 
-            $.ajax({
-                type: "POST",
-                url: "/master/city/saveCity",
-                dataType: "json",
-                data: dataSend,
-                success: function (data) {
-                    show_notif(data.code, data.message);
-                    if(data.code==200, data.code==201);{
-                    $("#code").val("");
-                    $("#name").val("");
-                }
+            if (provinceId==""){
+                show_notif(400, "PROVINSI HARUS DIPILIH");
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/master/city/saveCity",
+                    dataType: "json",
+                    data: dataSend,
+                    success: function (data) {
+                        show_notif(data.code, data.message);
+                        if(data.code==200, data.code==201);{
+                            $("#code").val("");
+                            $("#name").val("");
+                        }
+                    }
+                });
             }
-            });
             return false;
         }
     });
