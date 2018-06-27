@@ -48,7 +48,6 @@
 
 <script>
     $(document).ready(function () {
-        console.log("ini di git");
         var table = $('#example').DataTable({
             ajax: {
                 url: '<?php echo base_url()?>/master/province/getProvince',
