@@ -25,7 +25,7 @@
 
                 //bersihkan dropdown
                 $("#kota_id option").remove();
-                $("#kota_id").append('<option>Pilih Kab / Kota</option>')
+                $("#kota_id").append('<option value="">Pilih Kab / Kota</option>')
 
                 // looping get city
                 $.each(result.data.content, function (index, value){
@@ -43,6 +43,7 @@
         }else {
             var code = $("#code").val();
             var name = $("#name").val();
+            var kota_id = $("#kota_id").val();
 
             var data = {
                 code : code,
@@ -58,19 +59,23 @@
 
             console.log("simpan kecamatan:" +dataSend);
 
-            $.ajax({
-                type: "POST",
-                url: "/master/district/saveDistrict",
-                dataType: "json",
-                data:dataSend,
-                success: function (data) {
-                    show_notif(data.code, data.message);
-                    if (data.code==200 || data.code==201){
-                        $("#code").val("");
-                        $("#name").val("");
+            if (kota_id==""){
+                show_notif(400, "KABUPATEN / KOTA HARUS DIPILIH")
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/master/district/saveDistrict",
+                    dataType: "json",
+                    data:dataSend,
+                    success: function (data) {
+                        show_notif(data.code, data.message);
+                        if (data.code==200 || data.code==201){
+                            $("#code").val("");
+                            $("#name").val("");
+                        }
                     }
-                }
-            });
+                });
+            }
             return false;
         }
     });

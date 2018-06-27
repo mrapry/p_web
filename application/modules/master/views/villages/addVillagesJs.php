@@ -24,7 +24,7 @@
 
                 //bersihkan dropdown
                 $("#kecamatan_id option").remove();
-                $("#kecamatan_id").append('<option>Pilih Kecamatan</option>')
+                $("#kecamatan_id").append('<option value="">Pilih Kecamatan</option>')
 
                 // looping get District
                 $.each(result.data.content, function (index, value){
@@ -43,6 +43,7 @@
         } else {
             var code = $("#code").val();
             var name = $("#name").val();
+            var kecamatan_id = $("#kecamatan_id").val();
 
             var data = {
                 code : code,
@@ -58,19 +59,24 @@
 
             console.log("simpan kelurahan:" +dataSend);
 
-            $.ajax({
-                type: "POST",
-                url: "/master/villages/saveVillages",
-                dataType: "json",
-                data:dataSend,
-                success: function (data){
-                    show_notif(data.code, data.message);
-                    if(data.code==200 || data.code==201){
-                        $("#code").val("");
-                        $("#name").val("");
+            if (kecamatan_id == ""){
+                show_notif(400, "belum dipilih")
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/master/villages/saveVillages",
+                    dataType: "json",
+                    data:dataSend,
+                    success: function (data){
+                        show_notif(data.code, data.message);
+                        if(data.code==200 || data.code==201){
+                            $("#code").val("");
+                            $("#name").val("");
+                        }
                     }
-                }
-            });
+                });
+            }
+
             return false;
 
         }

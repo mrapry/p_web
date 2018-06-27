@@ -1,6 +1,5 @@
 <!--suppress ALL -->
 <div class="alert alert-success" role="alert" id="respon_server" style="display: none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <p class="message"></p>
 </div>
 <div class="block">
@@ -17,7 +16,7 @@
             <div class="form-row">
                 <div class="col-md-3">Nama Kab / Kota :</div>
                 <div class="col-md-9">
-                    <select name="kota_id" id="kota_id" class="form-control"></select>
+                    <select name="kota_id" id="kota_id" class="form-control" required></select>
                 </div>
             </div>
             <div class="form-row">
