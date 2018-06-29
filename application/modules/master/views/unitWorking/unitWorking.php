@@ -14,7 +14,7 @@
         <table id="unitWorking" class="display responsive nowrap table" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th>Kode</th>
+                <th class="col-md-1">Kode</th>
                 <th>Nama</th>
                 <th>Alamat</th>
                 <th>Telepon</th>
@@ -23,7 +23,7 @@
                 <th>Longitude</th>
                 <th>Latitude</th>
                 <th>Tipe</th>
-                <th>Lokasi Pelayanan </th>
+                <th>Kab / Kota</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -35,7 +35,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-danger">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title">Hapus Unit Kerja</h4>
             </div>
             <div class="modal-body">
@@ -43,7 +44,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" id="btnHapus" onclick="hapus()" data-dismiss="modal">Setuju</button>
+                <button type="button" class="btn btn-primary" id="btnHapus" onclick="hapus()" data-dismiss="modal">
+                    Setuju
+                </button>
             </div>
         </div>
     </div>
@@ -66,22 +69,20 @@
                 },
                 {
                     "data": "address",
-                    "visible": false
+                    // "render": "[, ].name"
                 },
                 {
                     "data": "phone",
-                    "visible": false
                 },
                 {
-                    "data": "faxmail",
+                    "data": "facsimile",
                     "visible": false
                 },
                 {
                     "data": "email",
-                    "visible": false
                 },
                 {
-                    "data": "langitude",
+                    "data": "latitude",
                     "visible": false
                 },
                 {
@@ -93,14 +94,24 @@
                     "visible": false
                 },
                 {
-                    "data": "serviceLocation",
-                    "visible" : false
+                    "data": "cityId",
+                    render: function (data, type, full, meta) {
+                        var currentCell = $("#unitWorking").DataTable().cells({"row":meta.row, "column":meta.col}).nodes(0);
+                        return $.ajax({
+                            type: "GET",
+                            url: '<?php echo base_url()?>/master/city/getCityDetail/' + full.cityId,
+                        }).done(function (success) {
+                                var res =  JSON.parse(success);
+                                $(currentCell).text(res.data.name);
+                        });
+                        return null;
+                    }
                 },
                 {
                     data: "",
                     className: "center",
                     render: function (data, type, full) {
-                        return '<a href="<?php echo base_url()?>master/areas/editUnitWorking/'+full.id+'" class=" editor_edit">Edit</a> / <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')">Delete</a>';
+                        return '<a href="<?php echo base_url()?>master/areas/editUnitWorking/' + full.id + '" class=" editor_edit"><span class="icon-edit"></span></a> / <a href="#" class=" editor_remove" onclick="showModalRemove(\'' + full.name + '\',\'' + full.id + '\')"><span class="icon-trash"></span></a>';
                     }
                 }
             ],
@@ -113,15 +124,15 @@
 
     function showModalRemove(unitWorking, id) {
         $("#dataUnitWorking").html(unitWorking);
-        $("#btnHapus").attr('onclick', 'hapus("'+id+'")');
+        $("#btnHapus").attr('onclick', 'hapus("' + id + '")');
         $("#model_remove").modal('show');
     }
 
-    function show_notif(tipe, message){
-        if(tipe == 201 || tipe == 200){
-            $("#respon_server").attr('class','alert alert-success');
+    function show_notif(tipe, message) {
+        if (tipe == 201 || tipe == 200) {
+            $("#respon_server").attr('class', 'alert alert-success');
         } else {
-            $("#respon_server").attr('class','alert alert-danger');
+            $("#respon_server").attr('class', 'alert alert-danger');
         }
         $("#respon_server .message").html(message);
         $("#respon_server").show('slow');
@@ -131,17 +142,17 @@
         var id = id;
 
         var data = {
-            id:id
+            id: id
         }
 
         var dataSend = {
-            data : JSON.stringify(data)
+            data: JSON.stringify(data)
         }
 
         $.ajax({
             type: "POST",
             url: "/master/unitWorking/deleteUnitWorking",
-            data:dataSend,
+            data: dataSend,
             success: function (data) {
                 var data = JSON.parse(data);
                 show_notif(data.code, data.message);

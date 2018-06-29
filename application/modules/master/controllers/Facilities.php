@@ -11,12 +11,14 @@ class Facilities extends MX_Controller {
 
     public function getFacilities()
     {
+        isAjax();
         $p = $this->facilities->get();
         echo json_encode($p);
     }
 
     public function saveFacilities()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->facilities->post($data);
         echo json_encode($p);
@@ -24,6 +26,7 @@ class Facilities extends MX_Controller {
 
     public function editFacilities()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->facilities->put($data);
         echo json_encode($p);
@@ -31,6 +34,7 @@ class Facilities extends MX_Controller {
 
     public function deleteFacilities()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->facilities->delete($data);
         echo json_encode($p);

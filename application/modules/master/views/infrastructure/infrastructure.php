@@ -1,36 +1,28 @@
 <div class="alert alert-success" role="alert" id="respon_server" style="display: none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <p class="message"></p>
 </div>
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title"><?php echo $title ?></h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btn-group pull-right">
-                    <a href="/master/areas/addInfrastructure">
-                        <button class="btn btn-primary" type="button">
-                            <span class="fa fa-plus"></span> Tambah Data
-                        </button>
-                    </a>
-                </div>
-            </div>
+
+<div class="block">
+    <div class="header">
+        <h2><?php echo $title ?></h2>
+        <div class="side pull-right">
+            <ul class="buttons">
+                <li><a href="/master/areas/addInfrastructure"><span class="icon-plus"></span>  Tambah Data </li>
+            </ul>
         </div>
-        <div class="row np-lr">
+    </div>
+        <div class="content">
             <table id="infrastructure" class="display responsive nowrap table" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <th>No</th>
+                    <th class="col-md-1">No</th>
                     <th>Nama</th>
-                    <th>Action</th>
+                    <th class="col-md-2">Action</th>
                 </tr>
                 </thead>
             </table>
         </div>
-    </div>
-</div>
+
 
 <div class="modal fade" tabindex="-1" role="dialog" id="model_remove">
     <div class="modal-dialog" role="document">
@@ -40,7 +32,7 @@
                 <h4 class="modal-title">Hapus Prasarana</h4>
             </div>
             <div class="modal-body">
-                <p>Apakah anda setuju menghapus Prasarana<br><br><strong><b id="datafacilities"></b></strong></p>
+                <p>Apakah anda setuju menghapus<br><br><strong><b id="dataInfrastructure"></b></strong></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -54,7 +46,6 @@
 <script>
     $(document).ready(function () {
         var table = $('#infrastructure').DataTable({
-            dom: 'Bfrtip',
             ajax: {
                 url: '<?php echo base_url()?>/master/infrastructure/getInfrastructure',
                 dataSrc: 'data.content',
@@ -71,7 +62,7 @@
                     data: "",
                     className: "center",
                     render: function (data, type, full) {
-                        return '<a href="<?php echo base_url()?>master/areas/editInfrastructure/'+full.id+'" class=" editor_edit">Edit</a> / <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')">Delete</a>';
+                        return '<a href="<?php echo base_url()?>master/areas/editInfrastructure/'+full.id+'" class=" editor_edit"><span class="icon-edit"></span></a> / <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')"><span class="icon-trash"></span></a>';
                     }
                 }
             ],
@@ -82,8 +73,8 @@
 
     });
 
-    function showModalRemove(facilities, id) {
-        $("#dataInfrastructure").html(facilities);
+    function showModalRemove(infrastructure, id) {
+        $("#dataInfrastructure").html(infrastructure);
         $("#btnHapus").attr('onclick', 'hapus("'+id+'")');
         $("#model_remove").modal('show');
     }

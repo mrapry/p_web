@@ -11,12 +11,14 @@ class Infrastructure extends MX_Controller {
 
     public function getInfrastructure()
     {
+        isAjax();
         $p = $this->infrastructure->get();
         echo json_encode($p);
     }
 
     public function saveInfrastructure()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->infrastructure->post($data);
         echo json_encode($p);
@@ -24,6 +26,7 @@ class Infrastructure extends MX_Controller {
 
     public function editInfrastructure()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->infrastructure->put($data);
         echo json_encode($p);
@@ -31,6 +34,7 @@ class Infrastructure extends MX_Controller {
 
     public function deleteInfrastructure()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->infrastructure->delete($data);
         echo json_encode($p);

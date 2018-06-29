@@ -1,5 +1,4 @@
 <div class="alert alert-success" role="alert" id="respon_server" style="display: none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <p class="message"></p>
 </div>
 
@@ -8,7 +7,7 @@
         <h2><?php echo $title ?></h2>
         <div class="side pull-right">
             <ul class="buttons">
-                <li><a href="/master/address/addKota"><span class="icon-plus"></span> Tambah Kab / Kota </a></li>
+                <li><a href="/master/address/addKota"><span class="icon-plus"></span> Tambah Data </a></li>
             </ul>
         </div>
     </div>
