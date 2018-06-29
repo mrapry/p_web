@@ -1,6 +1,5 @@
 <!--suppress ALL -->
 <div class="alert alert-success" role="alert" id="respon_server" style="display: none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
     <p class="message"></p>
 </div>
 <div class="block">

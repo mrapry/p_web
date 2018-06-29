@@ -9,12 +9,14 @@ class TypeUnit extends MX_Controller {
     }
     public function getType()
     {
+        isAjax();
         $p = $this->type->get();
         echo json_encode($p);
     }
 
     public function saveType()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->type->post($data);
         echo json_encode($p);
@@ -22,6 +24,7 @@ class TypeUnit extends MX_Controller {
 
     public function editType()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->type->put($data);
         echo json_encode($p);
@@ -29,6 +32,7 @@ class TypeUnit extends MX_Controller {
 
     public function deleteType()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->type->delete($data);
         echo json_encode($p);

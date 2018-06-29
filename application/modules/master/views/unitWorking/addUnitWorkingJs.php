@@ -91,7 +91,7 @@
                 // looping get infrastructure
                 $.each(result.data.content, function (index, value) {
                     $("#prasarana").append(
-                        '<div class="checkbox"><label><input name="infrastructure" type="checkbox" value="' + result.data.content[index].id +'">' + result.data.content[index].name + '</label></div>'
+                        '<div class="checkbox-inline"><label><input type="checkbox" name="infrastructure" value="' + result.data.content[index].id +'"> ' + result.data.content[index].name +'</label></div>'
                     )
                 })
             }
@@ -129,8 +129,7 @@
                 // looping get city
                 $.each(result.data.content, function (index, value) {
                     $("#sarana").append(
-                        '<div class="checkbox"><label><input type="checkbox" name="facilities" value="' + result.data.content[index].id +'">' + result.data.content[index].name + '</label></div>'
-                        // '<option value="' + result.data.content[index].id + '">' + result.data.content[index].name + '</option>'
+                        '<div class="checkbox-inline"><label><input type="checkbox" name="facilities" value="' + result.data.content[index].id +'"> ' + result.data.content[index].name +'</label></div>'
                     )
                 })
             }
@@ -193,9 +192,7 @@
                     "email": email,
                     "facilities": tempFacilities,
                     "infrastructures": tempInfrastructures,
-                    "city": {
-                        "id": $("#kota_id").val()
-                    },
+                    "cityId": $("#kota_id").val(),
                     "typeUnit": {
                         "id": $("#tipe_id").val()
                     }

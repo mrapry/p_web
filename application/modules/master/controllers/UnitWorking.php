@@ -10,12 +10,14 @@ class UnitWorking extends MX_Controller
 
     public function getUnit()
     {
+        isAjax();
         $p = $this->unit->get();
         echo json_encode($p);
     }
 
     public function saveUnit()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->unit->post($data);
         echo json_encode($p);
@@ -23,6 +25,7 @@ class UnitWorking extends MX_Controller
 
     public function editUnit()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->unit->put($data);
         echo json_encode($p);
@@ -30,6 +33,7 @@ class UnitWorking extends MX_Controller
 
     public function deleteUnit()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->unit->delete($data);
         echo json_encode($p);
