@@ -15,7 +15,7 @@
         <ul class="dropdown-menu">                                    
           <li><a href="<?php echo base_url() ?>master/address">Address</a></li>
           <li><a href="<?php echo base_url() ?>master/areas">Unit Kerja</a></li>
-          <li><a href="<?php echo base_url() ?>master/vessel">Kapal Ikan</a></li>
+          <li><a href="<?php echo base_url() ?>master/fishingVessel">Kapal Ikan</a></li>
           <li role="separator" class="divider"></li>
           <li><a href="#">Static Content</a></li>
         </ul>                                

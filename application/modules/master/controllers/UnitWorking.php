@@ -14,6 +14,18 @@ class UnitWorking extends MX_Controller
         $p = $this->unit->get();
         echo json_encode($p);
     }
+    public function getUnitById($id)
+    {
+        isAjax();
+        $p = $this->unit->getById($id);
+        echo json_encode($p);
+    }
+    public function getByTypeUnitId($id)
+    {
+        isAjax();
+        $p = $this->unit->getByTypeUnitId($id);
+        echo json_encode($p);
+    }
 
     public function saveUnit()
     {

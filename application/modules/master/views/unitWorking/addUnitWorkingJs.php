@@ -138,7 +138,7 @@
 
     $("#form-add-unitWorking").validator().on('submit', function (e) {
         if(e.isDefaultPrevented()){
-            return
+            console.log("DATA BELUM LENGKAP")
         }else{
             var code = $("#code").val();
             var name = $("#name").val();
@@ -211,8 +211,8 @@
                     url: "/master/unitWorking/saveUnit",
                     dataType: "json",
                     data: dataSend,
-                    success: function (json) {
-                        show_notif(json.code, json.message);
+                    success: function (data) {
+                        show_notif(data.code, data.message);
                     }
                 })
             } else {

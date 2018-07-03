@@ -14,7 +14,7 @@
         <table id="unitWorking" class="display responsive nowrap table" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th class="col-md-1">Kode</th>
+                <th class="col-md-2">Kode</th>
                 <th>Nama</th>
                 <th>Alamat</th>
                 <th>Telepon</th>

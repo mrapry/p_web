@@ -1,6 +1,5 @@
 <!--suppress ALL -->
 <div class="alert alert-success" role="alert" id="respon_server" style="display: none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <p class="message"></p>
 </div>
 <div class="block">
@@ -14,7 +13,6 @@
             </div>
         </div>
         <div class="content controls">
-
             <div class="form-row">
                 <div class="col-md-3">Kecamatan :</div>
                 <div class="col-md-9"><select name="provinsi_id" id="kecamatan_id" class="form-control"></select></div>
