@@ -2,7 +2,7 @@
     $(function () {
         $.ajax({
             type: "GET",
-            url: "/master/mapping/getUnitWorkingById/1",
+            url: "/master/unitWorking/getByTypeUnitId/1",
             success: function (data) {
                 var result = JSON.parse(data);
                 $("#parrentOption option").remove();
@@ -15,7 +15,7 @@
 
         $.ajax({
             type: "GET",
-            url: "/master/mapping/getUnitWorkingById/2",
+            url: "/master/unitWorking/getByTypeUnitId/2",
             success: function (data) {
                 var result = JSON.parse(data);
                 $("#childOption option").remove();
@@ -25,7 +25,7 @@
 
             }
         });
-    })
+    });
 
 
     function getTipe() {
@@ -37,11 +37,11 @@
             $("#child").html("Data SATWAS");
         } else {
             $("#parrent").html("Data SATWAS");
-            $("#child").html("WILKER");
+            $("#child").html("Dats WILKER");
         }
         $.ajax({
             type: "GET",
-            url: "/master/mapping/getUnitWorkingById/" + tipe,
+            url: "/master/unitWorking/getByTypeUnitId/" + tipe,
             success: function (data) {
                 var result = JSON.parse(data);
                 $("#parrentOption option").remove();
@@ -54,7 +54,7 @@
 
         $.ajax({
             type: "GET",
-            url: "/master/mapping/getUnitWorkingById/" + child,
+            url: "/master/unitWorking/getByTypeUnitId/" + child,
             success: function (data) {
                 var result = JSON.parse(data);
                 $("#childOption option").remove();
@@ -66,37 +66,82 @@
         });
     }
 
-    function save() {
-        var parrent = $("#parrentOption option:selected").val();
-        var child = $("#childOption option:selected").val();
-
-        var data = {
-            parrent: {
-                id: parrent
-            }, child: {
-                id: child
-            }
-        }
-
-        var dataSend = {
-            data: JSON.stringify(data)
-        }
-
-        console.log(data);
-        $.ajax({
-            type: "POST",
-            url: "/master/mapping/saveMapping",
-            dataType: "json",
-            data: dataSend,
-            success: function (data) {
-                show_notif(data.code, data.message);
-                if (data.code == 200 || data.code == 201) {
-                    $("#code").val("");
-                    $("#name").val("");
+    $("#form-add-mapping").validator().on('submit',function(e) {
+        if (e.isDefaultPrevented()) {
+            console.log("DATA BELUM LENGKAP");
+        } else {
+            var parrent = $("#parrentOption option:selected").val();
+            var child = $("#childOption option:selected").val();
+            var upt = $('#parrentOption option:selected').val();
+            var data = {
+                upt: {
+                    id: upt
+                },
+                parrent: {
+                    id: parrent
+                },
+                child: {
+                    id: child
                 }
             }
-        })
-    }
+
+            var dataSend = {
+                data: JSON.stringify(data)
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/master/mapping/saveMapping",
+                dataType: "json",
+                data: dataSend,
+                success: function (data) {
+                    show_notif(data.code, data.message);
+                    if (data.code == 200 || data.code == 201) {
+                        $("#upt").val("");
+                        $("#parrent").val("");
+                        $("#child").val();
+                    }
+                }
+            })
+            return false;
+        }
+    })
+
+    // function save() {
+    //     var parrent = $("#parrentOption option:selected").val();
+    //     var child = $("#childOption option:selected").val();
+    //     var upt = $('#parrentOption option:selected').val();
+    //
+    //     var data = {
+    //         upt: {
+    //             id: upt
+    //         },
+    //         parrent: {
+    //             id: parrent
+    //         }, child: {
+    //             id: child
+    //         }
+    //     }
+    //
+    //     var dataSend = {
+    //         data: JSON.stringify(data)
+    //     }
+    //
+    //     console.log(data);
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/master/mapping/saveMappingUnit",
+    //         dataType: "json",
+    //         data: dataSend,
+    //         success: function (data) {
+    //             show_notif(data.code, data.message);
+    //             if (data.code == 200 || data.code == 201) {
+    //                 $("#code").val("");
+    //                 $("#name").val("");
+    //             }
+    //         }
+    //     })
+    // }
 
     function show_notif(tipe, message){
         if(tipe == 201 || tipe == 200){

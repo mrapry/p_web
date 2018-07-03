@@ -14,7 +14,7 @@
         </div>
         <div class="content controls">
             <div class="form-row">
-                <div class="col-md-2">Kode Province :</div>
+                <div class="col-md-3">Kode Province :</div>
                 <div class="col-md-9">
                     <input type="text" class="form-control" id="code" name="code" placeholder="Kode Provinsi" data-error="Kode Provinsi wajib diisi!" required>
                     <div class="help-block with-errors"></div>

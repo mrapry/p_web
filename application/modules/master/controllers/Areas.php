@@ -75,7 +75,7 @@ class Areas extends MX_Controller
         $this->load->view('layout/main', $data);
     }
 
-    public function addMappping()
+    public function addMapping()
     {
         $data['content_detail']="master/mapping/addMapping";
         $data['content']="master/nav-areas";

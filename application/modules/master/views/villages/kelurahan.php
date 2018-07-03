@@ -1,5 +1,4 @@
 <div class="alert alert-success" role="alert" id="respon_server" style="display: none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <p class="message"></p>
 </div>
 <div class="block">
@@ -11,7 +10,7 @@
             </ul>
         </div>
     </div>
-    <div class="content">
+    <div class="content controls">
         <table id="example" class="display responsive nowrap table" cellspacing="0" width="100%">
             <thead>
                 <tr>

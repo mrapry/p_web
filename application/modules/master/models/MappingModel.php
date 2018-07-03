@@ -1,6 +1,17 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * Created by PhpStorm.
+ * User: matius
+ * Date: 08/04/18
+ * Time: 20.55
+ */
+
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
 
 class MappingModel extends CI_Model {
 
@@ -34,7 +45,7 @@ class MappingModel extends CI_Model {
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/mappingUnit?parrentID=".$id;
+        $requestUri.= "/mappingUnit?parrentId=".$id;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
