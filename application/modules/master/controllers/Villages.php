@@ -12,7 +12,11 @@ class Villages extends MX_Controller
     public function getVillages()
     {
         isAjax();
-        $p = $this->villages->get();
+        $getRequest = $this->input->get();
+        $p = $this->villages->get($getRequest);
+        $p->draw = (int)$getRequest['draw'];
+        $p->recordsTotal = $p->data->totalElements;
+        $p->recordsFiltered = $p->data->totalElements;
         echo json_encode($p);
     }
 

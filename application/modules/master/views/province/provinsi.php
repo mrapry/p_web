@@ -49,11 +49,19 @@
 <script>
     $(document).ready(function () {
         var table = $('#example').DataTable({
+            processing: true,
             ajax: {
                 url: '<?php echo base_url()?>/master/province/getProvince',
                 dataSrc: 'data.content',
-                processing: true
+                data: function(d,settings){
+                    console.log(d);
+                    var api = new $.fn.dataTable.Api( settings );
+                    d.page = api.page.info().page;
+                    d.size = d.length
+                    d.search = d.search.value
+                }
             },
+            serverSide: true,
             columns: [
                 {
                     data: "",

@@ -17,13 +17,12 @@
                 <th class="col-md-2">Kode</th>
                 <th>Nama</th>
                 <th>Alamat</th>
-                <th>Telepon</th>
+                <th class="col-md-2">Telepon</th>
                 <th>Faxmail</th>
                 <th>Email</th>
                 <th>Longitude</th>
                 <th>Latitude</th>
                 <th>Tipe</th>
-                <th>Kab / Kota</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -55,11 +54,18 @@
 <script>
     $(document).ready(function () {
         $('#unitWorking').DataTable({
+            "processing": true,
             ajax: {
                 url: '<?php echo base_url()?>/master/unitWorking/getUnit',
                 dataSrc: 'data.content',
-                processing: true
+                data: function(d,settings){
+                    var api = new $.fn.dataTable.Api( settings );
+                    d.page = api.page.info().page;
+                    d.size = d.length
+                    d.search = d.search.value
+                }
             },
+            "serverSide": true,
             columns: [
                 {
                     "data": "code"
@@ -80,6 +86,7 @@
                 },
                 {
                     "data": "email",
+                    "visible":false
                 },
                 {
                     "data": "latitude",
@@ -91,22 +98,21 @@
                 },
                 {
                     "data": "typeUnit.type",
-                    "visible": false
                 },
-                {
-                    "data": "cityId",
-                    render: function (data, type, full, meta) {
-                        var currentCell = $("#unitWorking").DataTable().cells({"row":meta.row, "column":meta.col}).nodes(0);
-                        return $.ajax({
-                            type: "GET",
-                            url: '<?php echo base_url()?>/master/city/getCityDetail/' + full.cityId,
-                        }).done(function (success) {
-                                var res =  JSON.parse(success);
-                                $(currentCell).text(res.data.name);
-                        });
-                        return null;
-                    }
-                },
+                //{
+                //    "data": "cityId",
+                //    //render: function (data, type, full, meta) {
+                //    //    var currentCell = $("#unitWorking").DataTable().cells({"row":meta.row, "column":meta.col}).nodes(0);
+                //    //    return $.ajax({
+                //    //        type: "GET",
+                //    //        url: '<?php ////echo base_url()?>////master/city/getCityById/' + full.cityId,
+                //    //    }).done(function (success) {
+                //    //            var res =  JSON.parse(success);
+                //    //            $(currentCell).text(res.data.name);
+                //    //    });
+                //    //    return null;
+                //    //}
+                //},
                 {
                     data: "",
                     className: "center",
@@ -151,7 +157,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/master/unitWorking/deleteUnitWorking",
+            url: "/master/unitWorking/deleteUnit",
             data: dataSend,
             success: function (data) {
                 var data = JSON.parse(data);

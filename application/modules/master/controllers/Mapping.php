@@ -14,7 +14,8 @@ class Mapping extends MX_Controller
     public function getMapping()
     {
         isAjax();
-        $p = $this->mapping->get();
+        $getRequest= $this->input->get();
+        $p = $this->mapping->get($getRequest);
         echo json_encode($p);
     }
 
@@ -44,6 +45,7 @@ class Mapping extends MX_Controller
 
     public function getUnitWorkingByType($type = null)
     {
+        isAjax();
         $p = $this->unitWorking->getByTypeUnitId($type);
         echo json_encode($p);
     }

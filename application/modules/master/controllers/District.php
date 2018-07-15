@@ -12,7 +12,11 @@ class District extends MX_Controller
     public function getDistrict()
     {
         isAjax();
-        $p = $this->district->get();
+        $getRequest= $this->input->get();
+        $p = $this->district->get($getRequest);
+        $p->draw = (int)$getRequest['draw'];
+        $p->recordsTotal = $p->data->totalElements;
+        $p->recordsFiltered = $p->data->totalElements;
         echo json_encode($p);
     }
 

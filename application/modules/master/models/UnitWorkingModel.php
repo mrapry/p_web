@@ -20,12 +20,15 @@ class UnitWorkingModel extends CI_Model {
 
     }
 
-    public function get()
+    public function get($getRequest)
     {
         $data = [];
+        $size = $getRequest['size'];
+        $page = $getRequest['page'];
+        $search = $getRequest['search'];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/unitWorking";
+        $requestUri.= "/unitWorking?name=".$search."&size=".$size."&page=".$page;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }

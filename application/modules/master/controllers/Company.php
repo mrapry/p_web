@@ -11,12 +11,14 @@ class Company extends MX_Controller {
 
     public function getCompany()
     {
+        isAjax();
         $p = $this->company->get();
         echo json_encode($p);
     }
 
     public function saveCompany()
     {
+        isAjax();
         $data = $this->input->post('data');
         $p = $this->company->post($data);
         echo json_encode($p);
@@ -24,6 +26,7 @@ class Company extends MX_Controller {
 
     public function editCompany()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->company->put($data);
         echo json_encode($p);
@@ -31,6 +34,7 @@ class Company extends MX_Controller {
 
     public function deleteCompany()
     {
+        isAjax();
         $data= $this->input->post('data');
         $p = $this->company->delete($data);
         echo json_encode($p);

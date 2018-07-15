@@ -11,7 +11,11 @@ class UnitWorking extends MX_Controller
     public function getUnit()
     {
         isAjax();
-        $p = $this->unit->get();
+        $getRequest = $this->input->get();
+        $p = $this->unit->get($getRequest);
+        $p->draw = (int)$getRequest['draw'];
+        $p->recordsTotal = $p->data->totalElements;
+        $p->recordsFiltered = $p->data->totalElements;
         echo json_encode($p);
     }
     public function getUnitById($id)

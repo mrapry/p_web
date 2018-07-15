@@ -9,18 +9,18 @@ class City extends MX_Controller
         $this->load->model("CityModel", "city");
     }
 
-    /**
-     * getCity
-     * @return json city
-     */
     public function getCity()
     {
         isAjax();
-        $p = $this->city->get();
+        $getRequest = $this->input->get();
+        $p = $this->city->get($getRequest);
+        $p->draw = (int)$getRequest['draw'];
+        $p->recordsTotal = $p->data->totalElements;
+        $p->recordsFiltered = $p->data->totalElements;
         echo json_encode($p);
     }
 
-    public function getCityDetail($id)
+    public function getCityById($id)
     {
         isAjax();
         $p = $this->city->getById($id);
