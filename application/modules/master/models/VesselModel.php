@@ -14,7 +14,7 @@ use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 
-class VesselNameModel extends CI_Model {
+class VesselModel extends CI_Model {
 
     public function __construct()
     {
@@ -26,7 +26,7 @@ class VesselNameModel extends CI_Model {
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_vessel");
-        $requestUri.="/vessel";
+        $requestUri.="/data";
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -46,7 +46,7 @@ class VesselNameModel extends CI_Model {
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_vessel");
-        $requestUri.="/vessel";
+        $requestUri.="/data";
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
         return $data;
     }
@@ -56,7 +56,7 @@ class VesselNameModel extends CI_Model {
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_vessel");
-        $requestUri.="/vessel";
+        $requestUri.="/data";
         $data = $this->psdkp->putData($requestUri, json_decode($payload));
         return $data;
     }
@@ -66,11 +66,11 @@ class VesselNameModel extends CI_Model {
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_vessel");
-        $requestUri.="/vessel/del";
+        $requestUri.="/data/del";
         $data = $this->psdkp->deleteData($requestUri, json_decode($payload));
         return $data;
     }
 
 }
 
-/* End of file VesselNameModel.php */
+/* End of file VesselModel.php */

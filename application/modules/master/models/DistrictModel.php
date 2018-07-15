@@ -20,12 +20,15 @@ class DistrictModel extends CI_Model
 
     }
 
-    public function get()
+    public function get($getRequest)
     {
         $data = [];
+        $size = $getRequest['size'];
+        $page = $getRequest['page'];
+        $search = $getRequest['search'];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri .= "/district";
+        $requestUri .= "/district?name=".$search."&size=".$size."&page=".$page;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }

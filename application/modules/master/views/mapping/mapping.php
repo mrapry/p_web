@@ -64,7 +64,8 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">DETAIL UPT</h4>
+                <h4 class="modal-title">Satuan Pengawasan SDKP di bawah</h4>
+                <h4 id="dataDetail"></h4>
             </div>
             <div class="modal-body clearfix">
                 <br>
@@ -116,7 +117,6 @@
         });
 
         var upt = $('#unitKerja').DataTable({
-            dom: 'Bfrtip',
             ajax: {
                 url: '<?php echo base_url()?>master/mapping/getUnitWorkingByType/1',
                 dataSrc: 'data.content',
@@ -143,7 +143,6 @@
         });
 
         var satwas = $('#satuanPengawas').DataTable({
-            dom: 'Bfrtip',
             ajax: {
                 url: '<?php echo base_url()?>master/mapping/getUnitWorkingByType/2',
                 dataSrc: 'data.content',
@@ -169,7 +168,6 @@
             ]
         });
         var wilker = $('#wilayahKerja').DataTable({
-            dom: 'Bfrtip',
             ajax: {
                 url: '<?php echo base_url()?>master/mapping/getUnitWorkingByType/3',
                 dataSrc: 'data.content',
@@ -196,15 +194,18 @@
         });
     });
 
-    function showModal(id) {
-        getDetailChild(id, "upt");
+    function showModal(id){
+        getDetailChild(id);
+        $.ajax({
+            type : "GET",
+            url : '<?php echo base_url()?>master/unitWorking/getUnitById/' + id,
+        }).done(function(success){
+            var data = JSON.parse(success);
+            $("#dataDetail").html(data.data.name);
+        });
         $("#detail").modal("show");
     }
 
-    function showModal_satwas(id) {
-        getDetailChild(id);
-        $("#detail").modal("show");
-    }
 
     function getDetailChild(id, type) {
         var table = $('#detailUPT').DataTable({

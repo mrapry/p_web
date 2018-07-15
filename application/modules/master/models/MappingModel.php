@@ -20,12 +20,13 @@ class MappingModel extends CI_Model {
 
     }
 
-    public function get()
+    public function get($getRequest)
     {
         $data = [];
+        $search = $getRequest ['search'];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_areas");
-        $requestUri.= "/mappingUnit";
+        $requestUri.= "/mappingUnit?name=".$search;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }

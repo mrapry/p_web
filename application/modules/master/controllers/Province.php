@@ -12,7 +12,11 @@ class Province extends MX_Controller
     public function getProvince()
     {
         isAjax();
-        $p = $this->province->get();
+        $getRequest= $this->input->get();
+        $p = $this->province->get($getRequest);
+        $p->draw = (int)$getRequest['draw'];
+        $p->recordsTotal = $p->data->totalElements;
+        $p->recordsFiltered = $p->data->totalElements;
         echo json_encode($p);
     }
 

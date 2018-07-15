@@ -11,6 +11,7 @@ class Areas extends MX_Controller
         $this->load->model("MappingModel", "mapping");
         $this->load->model("InfrastructureModel", "infrastructure");
         $this->load->model("FacilitiesModel", "facilities");
+        $this->load->model("CityModel", "city");
     }
 
     public function index()

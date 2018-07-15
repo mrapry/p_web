@@ -1,16 +1,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Data Kapal</h3>
+            <div class="block">
+                <div class="header">
+                    <h2>Data Kapal</h2>
                 </div>
-                <div class="list-group np">
-                    <a href="<?php echo base_url()?>master/vessel/" class="list-group-item">Kapal</a>
-                    <a href="<?php echo base_url()?>master/vessel/company" class="list-group-item">Data Perusahaan</a>
-                    <a href="<?php echo base_url()?>master/vessel/vesselType" class="list-group-item">Jenis Kapal</a>
-                    <a href="<?php echo base_url()?>master/vessel/fishingGear" class="list-group-item">Alat Tangkap</a>
-                    <a href="<?php echo base_url()?>master/vessel/gearType" class="list-group-item">Jenis Alat Tangkap</a>
+                <div class="content np">
+                    <a href="<?php echo base_url()?>master/fishingVessel/" class="list-group-item">Kapal</a>
+                    <a href="<?php echo base_url()?>master/fishingVessel/company" class="list-group-item">Data Perusahaan</a>
+                    <a href="<?php echo base_url()?>master/fishingVessel/vesselType" class="list-group-item">Jenis Kapal</a>
+                    <a href="<?php echo base_url()?>master/fishingVessel/fishingGear" class="list-group-item">Alat Tangkap</a>
+                    <a href="<?php echo base_url()?>master/fishingVessel/gearType" class="list-group-item">Jenis Alat Tangkap</a>
                 </div>
             </div>
         </div>
