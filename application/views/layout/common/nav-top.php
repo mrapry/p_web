@@ -13,7 +13,7 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon-bookmark"></span> Master</a>
         <ul class="dropdown-menu">                                    
-          <li><a href="<?php echo base_url() ?>master/address">Address</a></li>
+          <li><a href="<?php echo base_url() ?>area/address">Address</a></li>
           <li><a href="<?php echo base_url() ?>master/areas">Unit Kerja</a></li>
           <li><a href="<?php echo base_url() ?>master/fishingVessel">Kapal Ikan</a></li>
           <li role="separator" class="divider"></li>

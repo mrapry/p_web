@@ -69,7 +69,7 @@
 
         // This next block is to fix a problem in jshint. Jshint
         // replaces
-        // all tabs with spaces then performs some checks. The error
+        // all tabs with spaces then performs some checks. The err
         // positions (character/space) are then reported incorrectly,
         // not taking the replacement step into account. Here we look
         // at the evidence line and try to adjust the character position
@@ -85,7 +85,7 @@
             Array.prototype.forEach.call(evidence, function(item,
                                                             index) {
               if (item === '\t') {
-                // First col is 1 (not 0) to match error
+                // First col is 1 (not 0) to match err
                 // positions
                 tabpositions.push(index + 1);
               }

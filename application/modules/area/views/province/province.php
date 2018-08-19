@@ -6,7 +6,7 @@
         <h2><?php echo $title ?></h2>
         <div class="side pull-right">
             <ul class="buttons">
-                <li><a href="/master/address/addProvinsi"><span class="icon-plus"></span> Tambah Provinsi</a></li>
+                <li><a href="/area/address/add_province"><span class="icon-plus"></span> Tambah Provinsi</a></li>
             </ul>
         </div>
     </div>
@@ -51,10 +51,9 @@
         var table = $('#example').DataTable({
             processing: true,
             ajax: {
-                url: '<?php echo base_url()?>/master/province/getProvince',
+                url: '<?php echo base_url()?>area/province/getProvince',
                 dataSrc: 'data.content',
                 data: function(d,settings){
-                    console.log(d);
                     var api = new $.fn.dataTable.Api( settings );
                     d.page = api.page.info().page;
                     d.size = d.length
@@ -79,7 +78,7 @@
                     data: "",
                     className: "center",
                     render: function (data, type, full) {
-                        return '<a href="<?php echo base_url()?>master/address/editProvinsi/' + encodeURI(full.id) + '" class=" editor_edit"><span class="icon-edit"></span></a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\'' + encodeURI(full.name) + '\',\'' + encodeURI(full.id) + '\')"><span class="icon-trash"></span></a>';
+                        return '<a href="<?php echo base_url()?>area/address/edit_province/' + encodeURI(full.id) + '" class=" editor_edit"><span class="icon-edit"></span></a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\'' + (full.name) + '\',\'' + encodeURI(full.id) + '\')"><span class="icon-trash"></span></a>';
                     }
                 }
             ],
@@ -107,19 +106,15 @@
     }
 
     function hapus(id) {
-        var id = id;
-
         var data = {
             id: id
         }
-
         var dataSend = {
             data: JSON.stringify(data)
         }
-
         $.ajax({
             type: "POST",
-            url: "/master/province/deleteProvince",
+            url: "<?php echo base_url()?>area/province/deleteProvince",
             data: dataSend,
             success: function (data) {
                 var data = JSON.parse(data);
@@ -130,5 +125,4 @@
             }
         })
     }
-
 </script>

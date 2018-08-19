@@ -34,7 +34,7 @@ class Psdkp{
                 $data = json_decode($response->getBody()->getContents(), $toArray);
             } catch (ConnectException $e) {
                 $data = [];
-                echo ("error disini".$e);
+                echo ("err disini".$e);
             }
         }
         return $data;

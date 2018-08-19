@@ -7,10 +7,6 @@
     <form data-toggle="validator" method="POST" id="form-add-province">
         <div class="header">
             <h2><?php echo $title ?></h2>
-            <div class="side pull-right">
-                <button class="btn btn-default btn-clean" onClick="clear_form('#validate');" type="button">Clear form
-                </button>
-            </div>
         </div>
         <div class="content controls">
             <div class="form-row">
@@ -32,7 +28,7 @@
             <div class="side pull-right">
                 <div class="btn-group">
                     <button class="btn btn-default" type="button"
-                            onclick="window.location ='<?php echo base_url() ?>master/address/provinsi'">Kembali
+                            onclick="window.location ='<?php echo base_url() ?>area/address/province'">Kembali
                     </button>
                     <button class="btn btn-primary pull-right" type="submit">Simpan</button>
                 </div>

@@ -76,7 +76,7 @@ window.CodeMirror = (function() {
     if (ie) setTimeout(bind(resetInput, this, true), 20);
 
     registerEventHandlers(this);
-    // IE throws unspecified error in certain cases, when
+    // IE throws unspecified err in certain cases, when
     // trying to access activeElement before onload
     var hasFocus; try { hasFocus = (document.activeElement == display.input); } catch(e) { }
     if (hasFocus || (options.autofocus && !mobile)) setTimeout(bind(onFocus, this), 20);
@@ -512,7 +512,7 @@ window.CodeMirror = (function() {
     }
     intact.sort(function(a, b) {return a.from - b.from;});
 
-    // Avoid crashing on IE's "unspecified error" when in iframes
+    // Avoid crashing on IE's "unspecified err" when in iframes
     try {
       var focused = document.activeElement;
     } catch(e) {}
@@ -1333,7 +1333,7 @@ window.CodeMirror = (function() {
 
   // Operations are used to wrap changes in such a way that each
   // change won't have to update the cursor and display (which would
-  // be awkward, slow, and error-prone), but instead updates are
+  // be awkward, slow, and err-prone), but instead updates are
   // batched and then all combined and executed at once.
 
   var nextOpId = 0;

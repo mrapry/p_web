@@ -17,7 +17,7 @@
     function setProvinsi() {
         $.ajax({
             type: "GET",
-            url: "/master/province/getProvince",
+            url: "<?PHP echo base_url()?>area/province/getData",
             success: function (data) {
                 var result = JSON.parse(data);
 
@@ -34,7 +34,8 @@
             }
         })
     }
-    $("#form-add-city").validator().on('submit', function(e) {
+
+    $("#form-add-city").validator().on('submit', function (e) {
         if (e.isDefaultPrevented()) {
             console.log("DATA BELUM LENGKAP");
         } else {
@@ -54,19 +55,18 @@
                 data: JSON.stringify(data)
             }
 
-            console.log("simpan kota: " + dataSend);
-
-            if (provinceId==""){
+            if (provinceId == "") {
                 show_notif(400, "PROVINSI HARUS DIPILIH");
             } else {
                 $.ajax({
                     type: "POST",
-                    url: "/master/city/saveCity",
+                    url: "<?PHP echo base_url()?>area/city/saveCity",
                     dataType: "json",
                     data: dataSend,
                     success: function (data) {
                         show_notif(data.code, data.message);
-                        if(data.code==200, data.code==201);{
+                        if (data.code == 200, data.code == 201) ;
+                        {
                             $("#code").val("");
                             $("#name").val("");
                         }
@@ -76,35 +76,4 @@
             return false;
         }
     });
-
-    // function save() {
-    //     var code = $("#code").val();
-    //     var name = $("#name").val();
-    //
-    //     var data = {
-    //         code: code,
-    //         name: name,
-    //         province: {
-    //             id: $("#provinsi_id").val()
-    //         }
-    //     }
-    //
-    //     var dataSend = {
-    //         data: JSON.stringify(data)
-    //     }
-    //
-    //     console.log("simpan kota: " + dataSend);
-    //
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/master/city/saveCity",
-    //         dataType: "json",
-    //         data: dataSend,
-    //         success: function (data) {
-    //             show_notif(200, data.message);
-    //             $("#code").val("");
-    //             $("#name").val("");
-    //         }
-    //     })
-    // }
 </script>

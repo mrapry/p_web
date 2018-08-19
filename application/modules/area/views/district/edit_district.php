@@ -1,19 +1,19 @@
 <!--suppress ALL -->
 <div class="alert alert-success" role="alert" id="respon_server" style="display: none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <p class="message"></p>
 </div>
 <div class="block">
     <form>
         <div class="header">
             <h2><?php echo $title ?></h2>
-            <div class="side pull-right">
-                <button class="btn btn-default btn-clean" onClick="clear_form('#validate_custom');" type="button">Clear
-                    form
-                </button>
-            </div>
         </div>
         <div class="content controls">
+            <div class="form-row">
+                <div class="col-md-3">Nama Provinsi :</div>
+                <div class="col-md-9">
+                    <select name="kota_id" id="province_id" class="form-control" required></select>
+                </div>
+            </div>
             <div class="form-row">
                 <div class="col-md-3">Kab / Kota :</div>
                 <div class="col-md-9">
@@ -38,7 +38,7 @@
             <div class="side pull-right">
                 <div class="btn-group">
                     <button class="btn btn-default" type="button"
-                            onclick="window.location = '<?php echo base_url() ?>master/address/kecamatan'">Kembali
+                            onclick="window.location = '<?php echo base_url() ?>area/address/district'">Kembali
                     </button>
                     <button class="btn btn-primary pull-right" type="button" onclick="edit();">Update</button>
                 </div>

@@ -895,7 +895,7 @@ dd{padding: 5px 0px;}
 .step{clear: left;}
 .step label,.step legend { display: none; }
 
-/*.error-image { background: url('../img/error.png') no-repeat right top; }*/
+/*.err-image { background: url('../img/err.png') no-repeat right top; }*/
 
 .stepy-titles {display: block; list-style: none; margin: 0px 0px 10px 0px; padding: 0px; background: rgba(0,0,0,0.2); width: 100%; float: left;}
 .stepy-titles li { color: rgba(255,255,255,0.3); cursor: pointer; font-size: 12px; font-weight: bold; font-family: Tahoma, Arial, Verdana; float: left; padding: 8px 10px; line-height: 14px;}
@@ -912,13 +912,13 @@ dd{padding: 5px 0px;}
 .registration-block{width: 600px; margin: 100px auto 0px;}
 /* eof login-block */
 
-/* error block */ 
+/* err block */
 .block-error{width: 300px; margin: 100px auto 0px;}
     .block-error .error-logo{margin-bottom: 20px; float: left; width: 100%; text-align: center;}
         .block-error .error-code,.block-error .error-text{font-size: 24px; color: #FFF; text-align: center; text-shadow: 3px 3px 3px rgba(0,0,0,0.4); 
                                                           width: 100%; float: left; margin-bottom: 10px;}
         .block-error .error-text{font-size: 14px;margin-bottom: 20px;}
-/* eof error block */
+/* eof err block */
 
 /* gallery */
     .block .content.gallery{padding: 0px;}

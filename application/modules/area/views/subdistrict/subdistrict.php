@@ -1,24 +1,22 @@
 <div class="alert alert-success" role="alert" id="respon_server" style="display: none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <p class="message"></p>
 </div>
-
 <div class="block">
     <div class="header">
         <h2><?php echo $title?></h2>
         <div class="side pull-right">
             <ul class="buttons">
-                <li><a href="/master/address/addKecamatan"><span class="icon-plus"></span> Tambah Kecamatan</a></li>
+                <li><a href="<?php echo base_url()?>area/address/add_subdistrict"><span class="icon-plus"></span> Tambah Kelurahan</a></li>
             </ul>
         </div>
     </div>
-    <div class="content">
-        <table id="tbl_district" class="display responsive nowrap table" cellspacing="0" width="100%">
+    <div class="content controls">
+        <table id="example" class="display responsive nowrap table" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th class="col-md-2">Kode</th>
-                    <th>Nama Kecamatan</th>
-                    <th>Kab / Kota</th>
+                    <th>Nama Kelurahan</th>
+                    <th>Kecamatan</th>
                     <th class="col-md-2">Action</th>
                 </tr>
             </thead>
@@ -31,36 +29,33 @@
         <div class="modal-content">
             <div class="modal-header bg-danger">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Hapus Kecamatan</h4>
+                <h4 class="modal-title">Hapus Kelurahan</h4>
             </div>
             <div class="modal-body">
-                <p>Apakah anda setuju menghapus Kecamatan <br><br><strong><b id="dataDistrict"></b></strong></p>
+                <p>Apakah anda setuju menghapus Kelurahan <br><br><strong><b id="dataKelurahan"></b></strong></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                 <button type="button" class="btn btn-primary" id="btnHapus" onclick="hapus()" data-dismiss="modal">Setuju</button>
             </div>
-        </div>x
+        </div>
     </div>
 </div>
-
 <script>
-    $(document).ready(function () {
-        var table = $('#tbl_district').DataTable({
-            processing: true,
+    $(document).ready(function(){
+        var table = $('#example').DataTable({
+            "processing": true,
             ajax: {
-                url: '<?php echo base_url()?>/master/district/getDistrict',
+                url: '<?php echo base_url()?>/area/subdistrict/getSubdistrict',
                 dataSrc: 'data.content',
                 data: function(d,settings){
-                    console.log(d);
                     var api = new $.fn.dataTable.Api( settings );
                     d.page = api.page.info().page;
                     d.size = d.length
                     d.search = d.search.value
                 }
-
             },
-            serverSide: true,
+            "serverSide": true,
             columns: [
                 {
                     "data": "code"
@@ -69,13 +64,14 @@
                     "data": "name"
                 },
                 {
-                    "data": "city.name"
+                    "data": "district.name"
                 },
                 {
-                    data: "",
+                    data: null,
                     className: "center",
-                    render: function (data, type, full) {
-                        return '<a href="<?php echo base_url()?>master/address/editKecamatan/'+full.id+'" class=" editor_edit"><span class="icon-edit"></span></a> | <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')"><span class="icon-trash"></span></a>';
+                    render: function(data,type, full)
+                    {
+                        return '<a href="<?php echo base_url()?>area/address/edit_subdistrict/'+full.id+'" class=" editor_edit"><span class="icon-edit"></span></a> / <a href="#" class=" editor_remove" onclick="showModalRemove(\''+full.name+'\',\''+full.id+'\')"><span class="icon-trash"></span></a>';
                     }
                 }
             ],
@@ -86,10 +82,37 @@
 
     });
 
-    function showModalRemove(district, id) {
-        $("#dataDistrict").html(district);
+    function showModalRemove(kelurahan, id)
+    {
+        $("#dataKelurahan").html(kelurahan)
         $("#btnHapus").attr('onclick', 'hapus("'+id+'")');
         $("#model_remove").modal('show');
+    }
+    
+    function hapus(id) 
+    {
+        var id = id;
+
+        var data = {
+            id:id
+        }
+
+        var dataSend = {
+            data : JSON.stringify(data)
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url()?>area/subdistrict/deleteSubdistrict",
+            data:dataSend,
+            success: function (data) {
+                var data = JSON.parse(data);
+                show_notif(data.code, data.message);
+                setTimeout(function () {
+                    location.reload();
+                }, 3000);
+            }
+        })
     }
 
     function show_notif(tipe, message){
@@ -102,29 +125,4 @@
         $("#respon_server").show('slow');
     }
 
-    function hapus(id) {
-        var id = id;
-
-        var data = {
-            id:id
-        }
-
-        var dataSend = {
-            data : JSON.stringify(data)
-        }
-
-        console.log(dataSend);
-        $.ajax({
-            type: "POST",
-            url: "/master/district/deleteDistrict",
-            data:dataSend,
-            success: function (data) {
-                var data = JSON.parse(data);
-                show_notif(data.code, data.message);
-                setTimeout(function () {
-                    location.reload();
-                }, 3000);
-            }
-        })
-    }
 </script>

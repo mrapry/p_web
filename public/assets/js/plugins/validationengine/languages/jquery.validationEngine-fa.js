@@ -140,7 +140,7 @@
                 "ajaxNameCall": {
                     // remote json service location
                     "url": "ajaxValidateFieldName",
-                    // error
+                    // err
                     "alertText": "* این نام پیش‌تر ثبت شده است",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
                     "alertTextOk": "* این نام آزاد است",
@@ -150,7 +150,7 @@
 				 "ajaxNameCallPhp": {
 	                    // remote json service location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
-	                    // error
+	                    // err
 	                    "alertText": "* این نام تکراری است",
 	                    // speaks by itself
 	                    "alertTextLoad": "* درحال اعتبار سنجی، لطفا صبر کنید"

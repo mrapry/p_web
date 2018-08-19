@@ -1,7 +1,7 @@
 <script>
     $("#form-add-province").validator().on('submit', function (e) {
         if (e.isDefaultPrevented()) {
-            console.log("DATA BELUM LENGKAP");
+            show_notif(400, "DATA PROVINSI TIDAK TERSIMPAN");
         } else {
             var code = $("#code").val();
             var name = $("#name").val();
@@ -15,11 +15,9 @@
                 data : JSON.stringify(data)
             }
 
-            console.log("simpan provinsi:" +dataSend);
-
             $.ajax({
                 type: "POST",
-                url: "/master/province/saveProvince",
+                url: "/area/province/saveProvince",
                 dataType: "json",
                 data:dataSend,
                 success: function (data) {
@@ -44,34 +42,5 @@
         $("#respon_server .message").html(message);
         $("#respon_server").show('slow');
     }
-
-    // function save() {
-    //     var code = $("#code").val();
-    //     var name = $("#name").val();
-    //
-    //     var data = {
-    //         code : code,
-    //         name : name
-    //     }
-    //
-    //     var dataSend = {
-    //         data : JSON.stringify(data)
-    //     }
-    //
-    //     console.log("simpan provinsi: " +dataSend);
-    //
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/master/province/saveProvince",
-    //         dataType: "json",
-    //         data:dataSend,
-    //         success: function (data) {
-    //             show_notif(200, data.message);
-    //             $("#code").val("");
-    //             $("#name").val("");
-    //         }
-    //     });
-    //
-    // }
 
 </script>

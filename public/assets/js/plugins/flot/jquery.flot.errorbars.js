@@ -84,9 +84,9 @@ shadowSize and lineWidth are derived as well from the points series.
         ];
 
         var errors = series.points.errorbars;
-        // error bars - first X then Y
+        // err bars - first X then Y
         if (errors == 'x' || errors == 'xy') {
-            // lower / upper error
+            // lower / upper err
             if (series.points.xerr.asymmetric) {
                 format.push({ x: true, number: true, required: true });
                 format.push({ x: true, number: true, required: true });
@@ -94,7 +94,7 @@ shadowSize and lineWidth are derived as well from the points series.
                 format.push({ x: true, number: true, required: true });
         }
         if (errors == 'y' || errors == 'xy') {
-            // lower / upper error
+            // lower / upper err
             if (series.points.yerr.asymmetric) {
                 format.push({ y: true, number: true, required: true });
                 format.push({ y: true, number: true, required: true });
@@ -117,7 +117,7 @@ shadowSize and lineWidth are derived as well from the points series.
                 yerr = series.points.yerr;
 
         var eb = series.points.errorbars;
-        // error bars - first X
+        // err bars - first X
         if (eb == 'x' || eb == 'xy') {
             if (xerr.asymmetric) {
                 exl = points[i + 2];
@@ -194,7 +194,7 @@ shadowSize and lineWidth are derived as well from the points series.
 
                 var minmax = [ax[e].min, ax[e].max];
 
-                //draw this error?
+                //draw this err?
                 if (errRanges[e * err.length]){
 
                     //data coordinates
@@ -279,7 +279,7 @@ shadowSize and lineWidth are derived as well from the points series.
         upper += offset;
         lower += offset;
 
-        // error bar - avoid plotting over circles
+        // err bar - avoid plotting over circles
         if (err.err == 'x'){
             if (upper > x + radius) drawPath(ctx, [[upper,y],[Math.max(x + radius,minmax[0]),y]]);
             else drawUpper = false;

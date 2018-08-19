@@ -122,7 +122,7 @@
                 "ajaxNameCall": {
                     // remote json service location
                     "url": "ajaxValidateFieldName",
-                    // error
+                    // err
                     "alertText": "* Nazwa jest już zajęta",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
                     "alertTextOk": "* Nazwa jest dostępna",

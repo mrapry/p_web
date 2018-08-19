@@ -33,6 +33,25 @@ class CityModel extends CI_Model
         return $data;
     }
 
+    public function getData()
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri.="/city";
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
+    public function getByProvinceId($id=""){
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri.="/city?provinceId=".$id;
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
     public function getById($id = "")
     {
         $data = [];

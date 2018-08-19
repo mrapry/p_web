@@ -36,5 +36,5 @@ $lang['form_validation_less_than']		= 'Ang {field} field ay dapat maglaman ng nu
 $lang['form_validation_less_than_equal_to']	= 'Ang {field} field ay dapat maglaman ng numero na mas mababa o katumbas ng {param}.';
 $lang['form_validation_greater_than']		= 'Ang {field} field ay dapat maglaman ng numero na mas higit sa {param}.';
 $lang['form_validation_greater_than_equal_to']	= 'Ang {field} field ay dapat maglaman ng numero na mas higit o katumbas ng {param}.';
-$lang['form_validation_error_message_not_set']	= 'Hindi ma-access ang isang error message na nauukol sa field na may pangalang {field}.';
+$lang['form_validation_error_message_not_set']	= 'Hindi ma-access ang isang err message na nauukol sa field na may pangalang {field}.';
 $lang['form_validation_in_list']		= 'Ang {field} field ay dapat isa sa mga: {param}.';

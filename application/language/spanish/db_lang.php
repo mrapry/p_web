@@ -33,4 +33,4 @@ $lang['db_table_name_required'] = 'Se requiere un nombre de tabla para esa opera
 $lang['db_column_name_required'] = 'Se requiere un nombre de columna para esa operación.';
 $lang['db_column_definition_required'] = 'Se requiere una definición de columna para esa operación.';
 $lang['db_unable_to_set_charset'] = 'No ha sido posible fijar en la conexión el conjunto de caracteres: %s';
-$lang['db_error_heading'] = 'Ha ocurrido un error con la base de datos';
+$lang['db_error_heading'] = 'Ha ocurrido un err con la base de datos';

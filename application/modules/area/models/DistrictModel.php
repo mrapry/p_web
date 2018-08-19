@@ -33,6 +33,26 @@ class DistrictModel extends CI_Model
         return $data;
     }
 
+    public function getData()
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri.="/district";
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
+    public function getByDistrictId($id = "")
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri .= "/district?cityId=" . $id;
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
     public function getById($id = "")
     {
         $data = [];

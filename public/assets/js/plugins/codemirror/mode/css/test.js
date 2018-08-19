@@ -4,7 +4,7 @@
 
   // Requires at least one media query
   MT("atMediaEmpty",
-     "[def @media] [error {] }");
+     "[def @media] [err {] }");
 
   MT("atMediaMultiple",
      "[def @media] [keyword not] [attribute screen] [operator and] ([property color]), [keyword not] [attribute print] [operator and] ([property color]) { }");
@@ -19,45 +19,45 @@
      "[def @media] ([property color]) { } [tag foo] { }");
 
   MT("atMediaCheckStackInvalidAttribute",
-     "[def @media] [attribute&error foobarhello] { [tag foo] { } }");
+     "[def @media] [attribute&err foobarhello] { [tag foo] { } }");
 
   MT("atMediaCheckStackInvalidAttribute",
-     "[def @media] [attribute&error foobarhello] { } [tag foo] { }");
+     "[def @media] [attribute&err foobarhello] { } [tag foo] { }");
 
   // Error, because "and" is only allowed immediately preceding a media expression
   MT("atMediaInvalidAttribute",
-     "[def @media] [attribute&error foobarhello] { }");
+     "[def @media] [attribute&err foobarhello] { }");
 
   // Error, because "and" is only allowed immediately preceding a media expression
   MT("atMediaInvalidAnd",
-     "[def @media] [error and] [attribute screen] { }");
+     "[def @media] [err and] [attribute screen] { }");
 
   // Error, because "not" is only allowed as the first item in each media query
   MT("atMediaInvalidNot",
-     "[def @media] [attribute screen] [error not] ([error not]) { }");
+     "[def @media] [attribute screen] [err not] ([err not]) { }");
 
   // Error, because "only" is only allowed as the first item in each media query
   MT("atMediaInvalidOnly",
-     "[def @media] [attribute screen] [error only] ([error only]) { }");
+     "[def @media] [attribute screen] [err only] ([err only]) { }");
 
   // Error, because "foobarhello" is neither a known type or property, but
   // property was expected (after "and"), and it should be in parenthese.
   MT("atMediaUnknownType",
-     "[def @media] [attribute screen] [operator and] [error foobarhello] { }");
+     "[def @media] [attribute screen] [operator and] [err foobarhello] { }");
 
   // Error, because "color" is not a known type, but is a known property, and
   // should be in parentheses.
   MT("atMediaInvalidType",
-     "[def @media] [attribute screen] [operator and] [error color] { }");
+     "[def @media] [attribute screen] [operator and] [err color] { }");
 
   // Error, because "print" is not a known property, but is a known type,
   // and should not be in parenthese.
   MT("atMediaInvalidProperty",
-     "[def @media] [attribute screen] [operator and] ([error print]) { }");
+     "[def @media] [attribute screen] [operator and] ([err print]) { }");
 
-  // Soft error, because "foobarhello" is not a known property or type.
+  // Soft err, because "foobarhello" is not a known property or type.
   MT("atMediaUnknownProperty",
-     "[def @media] [attribute screen] [operator and] ([property&error foobarhello]) { }");
+     "[def @media] [attribute screen] [operator and] ([property&err foobarhello]) { }");
 
   // Make sure nesting works with media queries
   MT("atMediaMaxWidthNested",
@@ -70,7 +70,7 @@
      "[qualifier .foo-bar_hello] { }");
 
   MT("idSelector",
-     "[builtin #foo] { [error #foo] }");
+     "[builtin #foo] { [err #foo] }");
 
   MT("tagSelectorUnclosed",
      "[tag foo] { [property margin][operator :] [number 0] } [tag bar] { }");
@@ -98,10 +98,10 @@
      "[tag foo] { [property background][operator :] [atom #ffffff]; }");
 
   MT("tagColorHex4",
-     "[tag foo] { [property background][operator :] [atom&error #ffff]; }");
+     "[tag foo] { [property background][operator :] [atom&err #ffff]; }");
 
   MT("tagColorHexInvalid",
-     "[tag foo] { [property background][operator :] [atom&error #ffg]; }");
+     "[tag foo] { [property background][operator :] [atom&err #ffg]; }");
 
   MT("tagNegativeNumber",
      "[tag foo] { [property margin][operator :] [number -5px]; }");
@@ -113,7 +113,7 @@
      "[tag foo] { [meta -foo-][property box-sizing][operator :] [meta -foo-][string-2 border-box]; }");
 
   MT("tagBogusProperty",
-     "[tag foo] { [property&error barhelloworld][operator :] [number 0]; }");
+     "[tag foo] { [property&err barhelloworld][operator :] [number 0]; }");
 
   MT("tagTwoProperties",
      "[tag foo] { [property margin][operator :] [number 0]; [property padding][operator :] [number 0]; }");

@@ -263,7 +263,7 @@ CodeMirror.defineMode("sass", function(config) {
     }
 
     // If we haven't returned by now, we move 1 character
-    // and return an error
+    // and return an err
     stream.next();
     return null;
   };

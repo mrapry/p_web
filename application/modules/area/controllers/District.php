@@ -20,6 +20,20 @@ class District extends MX_Controller
         echo json_encode($p);
     }
 
+    public function getData()
+    {
+        isAjax();
+        $p = $this->district->getData();
+        echo json_encode($p);
+    }
+
+    public function getDistrictByCityId($id)
+    {
+        isAjax();
+        $p = $this->district->getByDistrictId($id);
+        echo json_encode($p);
+    }
+
     public function saveDistrict()
     {
         isAjax();

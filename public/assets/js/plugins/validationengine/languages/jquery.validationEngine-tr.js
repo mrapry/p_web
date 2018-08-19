@@ -130,7 +130,7 @@
                 "ajaxNameCall": {
                     // remote json service location
                     "url": "ajaxValidateFieldName",
-                    // error
+                    // err
                     "alertText": "* Bu isim kullanımda",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
                     "alertTextOk": "* Bu isim kullanılabilir",
@@ -140,7 +140,7 @@
 				 "ajaxNameCallPhp": {
 	                    // remote json service location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
-	                    // error
+	                    // err
 	                    "alertText": "* Bu isim kullanımda",
 	                    // speaks by itself
 	                    "alertTextLoad": "* Doğrulanıyor, lütfen bekleyiniz"

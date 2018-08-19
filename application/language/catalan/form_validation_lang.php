@@ -37,5 +37,5 @@ $lang['form_validation_less_than'] = 'El camp {field} ha de contenir un nombre m
 $lang['form_validation_less_than_equal_to'] = 'El camp {field} ha de contenir un nombre més petit o igual que {param}.';
 $lang['form_validation_greater_than'] = 'El camp {field} ha de contenir un nombre més gran que {param}.';
 $lang['form_validation_greater_than_equal_to'] = 'El camp {field} ha de contenir un nombre més gran o igual que {param}.';
-$lang['form_validation_error_message_not_set'] = 'Impossible accedir a un missatge d\'error corresponent al camp {field}.';
+$lang['form_validation_error_message_not_set'] = 'Impossible accedir a un missatge d\'err corresponent al camp {field}.';
 $lang['form_validation_in_list'] = 'El camp {field} ha de ser un d\'aquests: {param}.';

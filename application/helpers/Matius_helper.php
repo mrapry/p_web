@@ -24,3 +24,24 @@ if (!function_exists('isAjax')) {
         }
     }
 }
+
+if (!function_exists('validateEmail')){
+    function validateEmail($email) {
+        $v = "/[a-zA-Z0-9_\-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/";
+        return (bool)preg_match($v, $email);
+    }
+}
+
+if (!function_exists('validateText')){
+    function validateText($text) {
+        $v = "/^[a-zA-Z .\-]+$/i";
+        return (bool)preg_match($v, $text);
+    }
+}
+
+if (!function_exists('validateNumber')){
+    function validateNumber($text) {
+        $v = "/^[0-9 .\-]+$/i";
+        return (bool)preg_match($v, $text);
+    }
+}

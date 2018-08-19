@@ -193,7 +193,7 @@
 			return this;
 		},
 		/**
-		* Closes form error prompts, CAN be invidual
+		* Closes form err prompts, CAN be invidual
 		*/
 		hide: function() {
 			 var form = $(this).closest('form, .validationEngineContainer');
@@ -213,7 +213,7 @@
 			 return this;
 		 },
 		 /**
-		 * Closes all error prompts on the page
+		 * Closes all err prompts on the page
 		 */
 		 hideAll: function() {
 
@@ -325,7 +325,7 @@
 		_validateFields: function(form) {
 			var options = form.data('jqv');
 
-			// this variable is set to true if an error is found
+			// this variable is set to true if an err is found
 			var errorFound = false;
 
 			// Trigger hook, start validation
@@ -355,7 +355,7 @@
 						return false;
 					names.push(field.attr('name'));
 
-					//if option set, stop checking validation rules after one error is found
+					//if option set, stop checking validation rules after one err is found
 					if(options.showOneMessage == true && errorFound){
 						return false;
 					}
@@ -390,7 +390,7 @@
 						destination -= options.scrollOffset;
 					}
 
-					// get the position of the first error, there should be at least one, no need to check this
+					// get the position of the first err, there should be at least one, no need to check this
 					//var destination = form.find(".formError:not('.greenPopup'):first").offset().top;
 					if (options.isOverflown) {
 						var overflowDIV = $(options.overflownDIV);
@@ -469,7 +469,7 @@
 								if (value[1] == true) {
 
 									if (msg == ""  || !msg){
-										// if for some reason, status==true and error="", just close the prompt
+										// if for some reason, status==true and err="", just close the prompt
 										methods._closePrompt(errorField);
 									} else {
 										// the field is valid, but we are displaying a green prompt
@@ -481,7 +481,7 @@
 										if (options.showPrompts) methods._showPrompt(errorField, msg, "pass", false, options, true);
 									}
 								} else {
-									// the field is invalid, show the red error prompt
+									// the field is invalid, show the red err prompt
 									errorInForm|=true;
 									if (options.allrules[msg]) {
 										var txt = options.allrules[msg].alertText;
@@ -538,7 +538,7 @@
 			options.isError = false;
 			options.showArrow = true;
 			
-			// If the programmer wants to limit the amount of error messages per field,
+			// If the programmer wants to limit the amount of err messages per field,
 			if (options.maxErrorsPerField > 0) {
 				limitErrors = true;
 			}
@@ -677,11 +677,11 @@
 						case "_break":
 							end_validation = true;
 							break;
-						// If we have an error message, set errorMsg to the error message
+						// If we have an err message, set errorMsg to the err message
 						case "_error":
 							errorMsg = errorMsg.message;
 							break;
-						// If we want to throw an error, but not show a prompt, return early with true
+						// If we want to throw an err, but not show a prompt, return early with true
 						case "_error_no_prompt":
 							return true;
 							break;
@@ -696,7 +696,7 @@
 					break;
 				}
 				
-				// If we have a string, that means that we have an error, so add it to the error message.
+				// If we have a string, that means that we have an err, so add it to the err message.
 				if (typeof errorMsg == 'string') {
 					promptText += errorMsg + "<br/>";
 					options.isError = true;
@@ -734,7 +734,7 @@
 				field.trigger("jqv.field.result", [field, options.isError, promptText]);
 			}
 
-			/* Record error */
+			/* Record err */
 			var errindex = $.inArray(field[0], options.InvalidFields);
 			if (errindex == -1) {
 				if (options.isError)
@@ -819,8 +819,8 @@
 				 errorMsg = originalValidationMethod(field, rules, i, options);
 			 }
 
-			 // If the original validation method returned an error and we have a custom error message,
-			 // return the custom message instead. Otherwise return the original error message.
+			 // If the original validation method returned an err and we have a custom err message,
+			 // return the custom message instead. Otherwise return the original err message.
 			 if (errorMsg != undefined) {
 				 var custom_message = methods._getCustomErrorMessage($(field), element_classes_array, alteredRule, options);
 				 if (custom_message) errorMsg = custom_message;
@@ -834,12 +834,12 @@
 			 // If there is a validityProp for this rule, check to see if the field has an attribute for it
 			if (validityProp != undefined) {
 				custom_message = field.attr("data-errormessage-"+validityProp);
-				// If there was an error message for it, return the message
+				// If there was an err message for it, return the message
 				if (custom_message != undefined) 
 					return custom_message;
 			}
 			custom_message = field.attr("data-errormessage");
-			 // If there is an inline custom error message, return it
+			 // If there is an inline custom err message, return it
 			if (custom_message != undefined) 
 				return custom_message;
 			var id = '#' + field.attr("id");
@@ -867,9 +867,9 @@
 		 },
 		 _validityProp: {
 			 "required": "value-missing",
-			 "custom": "custom-error",
+			 "custom": "custom-err",
 			 "groupRequired": "value-missing",
-			 "ajax": "custom-error",
+			 "ajax": "custom-err",
 			 "minSize": "range-underflow",
 			 "maxSize": "range-overflow",
 			 "min": "range-underflow",
@@ -881,7 +881,7 @@
 			 "maxCheckbox": "range-overflow",
 			 "minCheckbox": "range-underflow",
 			 "equals": "pattern-mismatch",
-			 "funcCall": "custom-error",
+			 "funcCall": "custom-err",
 			 "creditCard": "pattern-mismatch",
 			 "condRequired": "value-missing"
 		 },
@@ -894,7 +894,7 @@
 		* @param {Map}
 		*            user options
 		* @param {bool} condRequired flag when method is used for internal purpose in condRequired check
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_required: function(field, rules, i, options, condRequired) {
 			switch (field.prop("type")) {
@@ -945,7 +945,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_groupRequired: function(field, rules, i, options) {
 			var classGroup = "["+options.validateAttribute+"*=" +rules[i + 1] +"]";
@@ -970,7 +970,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_custom: function(field, rules, i, options) {
 			var customRule = rules[i + 1];
@@ -1014,7 +1014,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_funcCall: function(field, rules, i, options) {
 			var functionName = rules[i + 1];
@@ -1043,7 +1043,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_equals: function(field, rules, i, options) {
 			var equalsField = rules[i + 1];
@@ -1059,7 +1059,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_maxSize: function(field, rules, i, options) {
 			var max = rules[i + 1];
@@ -1078,7 +1078,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_minSize: function(field, rules, i, options) {
 			var min = rules[i + 1];
@@ -1097,7 +1097,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_min: function(field, rules, i, options) {
 			var min = parseFloat(rules[i + 1]);
@@ -1117,7 +1117,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_max: function(field, rules, i, options) {
 			var max = parseFloat(rules[i + 1]);
@@ -1138,7 +1138,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_past: function(form, field, rules, i, options) {
 
@@ -1171,7 +1171,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_future: function(form, field, rules, i, options) {
 
@@ -1227,7 +1227,7 @@
 		*
 		* @param {jqObject} first field name
 		* @param {jqObject} second field name
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_dateRange: function (field, rules, i, options) {
 			//are not both populated
@@ -1250,7 +1250,7 @@
 		*
 		* @param {jqObject} first field name
 		* @param {jqObject} second field name
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_dateTimeRange: function (field, rules, i, options) {
 			//are not both populated
@@ -1274,7 +1274,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_maxCheckbox: function(form, field, rules, i, options) {
 
@@ -1296,7 +1296,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_minCheckbox: function(form, field, rules, i, options) {
 
@@ -1317,7 +1317,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		*            user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_creditCard: function(field, rules, i, options) {
 			//spaces and dashes may be valid characters, but must be stripped to calculate the checksum.
@@ -1390,7 +1390,7 @@
 				delete(options.ajaxValidCache[field.attr("id")]);
 			 }
 
-			 // If there is an error or if the the field is already validated, do not re-execute AJAX
+			 // If there is an err or if the the field is already validated, do not re-execute AJAX
 			 if (!options.isError && !methods._checkAjaxFieldStatus(field.attr("id"), options)) {
 				 $.ajax({
 					 type: options.ajaxFormValidationMethod,
@@ -1481,7 +1481,7 @@
 			if(data.status == 0 && transport == null)
 				alert("The page is not served from a server! ajax call failed");
 			else if(typeof console != "undefined")
-				console.log("Ajax error: " + data.status + " " + transport);
+				console.log("Ajax err: " + data.status + " " + transport);
 		},
 		/**
 		* date -> string
@@ -1524,9 +1524,9 @@
 			}
 
 			 var prompt = methods._getPrompt(field);
-			 // The ajax submit errors are not see has an error in the form,
+			 // The ajax submit errors are not see has an err in the form,
 			 // When the form errors are returned, the engine see 2 bubbles, but those are ebing closed by the engine at the same time
-			 // Because no error was found befor submitting
+			 // Because no err was found befor submitting
 			 if(ajaxform) prompt = false;
 			 // Check that there is indded text
 			 if($.trim(promptText)){ 
@@ -1562,7 +1562,7 @@
 					prompt.addClass("blackPopup");
 					break;
 				default:
-					/* it has error  */
+					/* it has err  */
 					//alert("unknown popup type:"+type);
 			}
 			if (ajaxed)
@@ -1715,11 +1715,11 @@
 			 return methods._closePrompt(field);
 		 },
 		/**
-		* Returns the error prompt matching the field if any
+		* Returns the err prompt matching the field if any
 		*
 		* @param {jqObject}
 		*            field
-		* @return undefined or the error prompt (jqObject)
+		* @return undefined or the err prompt (jqObject)
 		*/
 		_getPrompt: function(field) {
 				var formId = $(field).closest('form, .validationEngineContainer').attr('id');
@@ -1920,7 +1920,7 @@
 		* @param {int} i rules index
 		* @param {Map}
 		* user options
-		* @return an error string if validation failed
+		* @return an err string if validation failed
 		*/
 		_condRequired: function(field, rules, i, options) {
 			var idx, dependingField;
@@ -1986,7 +1986,7 @@
 
 		// Name of the event triggering field validation
 		validationEventTrigger: "blur",
-		// Automatically scroll viewport to the first error
+		// Automatically scroll viewport to the first err
 		scroll: true,
 		// Focus on the first input
 		focusFirstField:true,
@@ -2017,7 +2017,7 @@
 
 		// Used when you have a form fields too close and the errors messages are on top of other disturbing viewing messages
 		doNotShowAllErrosOnSubmit: false,
-		// Object where you store custom messages to override the default error messages
+		// Object where you store custom messages to override the default err messages
 		custom_error_messages:{},
 		// true if you want to vind the input fields
 		binded: true,
@@ -2057,7 +2057,7 @@
 	 usePrefix: "",
 	 // Custom ID uses suffix
 	 useSuffix: "",
-	 // Only show one message per error prompt
+	 // Only show one message per err prompt
 	 showOneMessage: false
 	}};
 	$(function(){$.validationEngine.defaults.promptPosition = methods.isRTL()?'topLeft':"topRight"});

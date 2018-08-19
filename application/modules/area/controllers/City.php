@@ -20,6 +20,20 @@ class City extends MX_Controller
         echo json_encode($p);
     }
 
+    public function getData()
+    {
+        isAjax();
+        $p = $this->city->getData();
+        echo json_encode($p);
+    }
+
+    public function getCityByProvinceId($id)
+    {
+        isAjax();
+        $p = $this->city->getByProvinceId($id);
+        echo json_encode($p);
+    }
+
     public function getCityById($id)
     {
         isAjax();

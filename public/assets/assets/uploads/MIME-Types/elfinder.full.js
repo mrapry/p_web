@@ -164,7 +164,7 @@
 		}
 		
 		/**
-		 * make ajax request, show message on error, call callback on success
+		 * make ajax request, show message on err, call callback on success
 		 *
 		 * @param  Object.  data for ajax request
 		 * @param  Function  
@@ -847,14 +847,14 @@ elFinder.prototype.view = function(fm, el) {
 	}
 	
 	/*
-	 * Display ajax error
+	 * Display ajax err
 	*/
 	this.fatal = function(t) {
 		self.error(t.status != '404' ? 'Invalid backend configuration' : 'Unable to connect to backend')
 	}
 	
 	/*
-	 * Render error
+	 * Render err
 	*/
 	this.error = function(err, data) {
 		this.fm.lock();
@@ -1015,7 +1015,7 @@ elFinder.prototype.view = function(fm, el) {
 	}
 
 	/*
-	 * Return error message
+	 * Return err message
 	*/
 	this.formatErrorData = function(data) {
 		var i, err = ''
@@ -1744,7 +1744,7 @@ elFinder.prototype.ui.prototype.commands = {
 			};
 			if (ids.length) {
 				this.fm.lockShortcuts(true);
-				$('<div><div class="ui-state-error ui-corner-all"><span class="ui-icon ui-icon-alert"/><strong>'+this.fm.i18n('Are you shure you want to remove files?<br /> This cannot be undone!')+'</strong></div></div>')
+				$('<div><div class="ui-state-err ui-corner-all"><span class="ui-icon ui-icon-alert"/><strong>'+this.fm.i18n('Are you shure you want to remove files?<br /> This cannot be undone!')+'</strong></div></div>')
 					.dialog({
 						title       : this.fm.i18n('Confirmation required'),
 						dialogClass : 'el-finder-dialog',
@@ -1942,7 +1942,7 @@ elFinder.prototype.ui.prototype.commands = {
 		this.exec = function() {
 
 			var id = 'el-finder-io-'+(new Date().getTime()),
-				e = $('<div class="ui-state-error ui-corner-all"><span class="ui-icon ui-icon-alert"/><div/></div>'),
+				e = $('<div class="ui-state-err ui-corner-all"><span class="ui-icon ui-icon-alert"/><div/></div>'),
 				m = this.fm.params.uplMaxSize ? '<p>'+this.fm.i18n('Maximum allowed files size')+': '+this.fm.params.uplMaxSize+'</p>' : '',
 				b = $('<p class="el-finder-add-field"><span class="ui-state-default ui-corner-all"><em class="ui-icon ui-icon-circle-plus"/></span>'+this.fm.i18n('Add field')+'</p>')
 					.click(function() { $(this).before('<p><input type="file" name="upload[]"/></p>'); }),

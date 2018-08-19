@@ -15,7 +15,7 @@
 	padding:5px;
 }
 
-/* error messages */
+/* err messages */
 .el-finder-err {
 	padding: 15px;
 	text-align:center;
@@ -141,7 +141,7 @@
 	display:none;
 }
 
-/* error in workzone */
+/* err in workzone */
 .el-finder-workzone p.el-finder-err {
 	display:none;
 	position:absolute;

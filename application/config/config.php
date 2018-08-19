@@ -214,7 +214,7 @@ $config['allow_get_array'] = TRUE;
 | Error Logging Threshold
 |--------------------------------------------------------------------------
 |
-| You can enable error logging by setting a threshold over zero. The
+| You can enable err logging by setting a threshold over zero. The
 | threshold determines what gets logged. Threshold options are:
 |
 |	0 = Disables logging, Error logging TURNED OFF
@@ -223,7 +223,7 @@ $config['allow_get_array'] = TRUE;
 |	3 = Informational Messages
 |	4 = All Messages
 |
-| You can also pass an array with threshold levels to show individual error types
+| You can also pass an array with threshold levels to show individual err types
 |
 | 	array(2) = Debug Messages, without Error Messages
 |

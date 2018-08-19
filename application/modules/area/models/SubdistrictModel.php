@@ -12,7 +12,7 @@ use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 
-class VillagesModel extends CI_Model 
+class SubdistrictModel extends CI_Model
 {
     public function __construct()
     {
@@ -27,7 +27,7 @@ class VillagesModel extends CI_Model
         $search = $getRequest['search'];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.= "/subDistrict?name=".$search."&size=".$size."&page=".$page;
+        $requestUri.= "/subdistrict?name=".$search."&size=".$size."&page=".$page;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -37,7 +37,7 @@ class VillagesModel extends CI_Model
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/subDistrict?id=".$id;
+        $requestUri.="/subdistrict?id=".$id;
         $data = $this->psdkp->getData($requestUri);
         return $data;
     }
@@ -48,7 +48,7 @@ class VillagesModel extends CI_Model
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.= "/subDistrict";
+        $requestUri.= "/subdistrict";
         $data = $this->psdkp->postData($requestUri, json_decode($payload));
         return $data;
     }
@@ -58,7 +58,7 @@ class VillagesModel extends CI_Model
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/subDistrict";
+        $requestUri.="/subdistrict";
         $data = $this->psdkp->putData($requestUri, json_decode($payload));
         return $data;
     }
@@ -68,7 +68,7 @@ class VillagesModel extends CI_Model
         $data = [];
         $session_user = $this->session->userdata();
         $requestUri = $this->config->item("psdkp_address");
-        $requestUri.="/subDistrict/del";
+        $requestUri.="/subdistrict/del";
         $data = $this->psdkp->deleteData($requestUri, json_decode($payload));
         return $data;
     }

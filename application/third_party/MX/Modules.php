@@ -174,7 +174,7 @@ class Modules
 	* Find a file
 	* Scans for files located within modules directories.
 	* Also scans application directories for models, plugins and views.
-	* Generates fatal error if file not found.
+	* Generates fatal err if file not found.
 	**/
 	public static function find($file, $module, $base) 
 	{

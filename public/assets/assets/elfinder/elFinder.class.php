@@ -138,13 +138,13 @@ class elFinder {
 	const ERROR_REPLACE           = 'errReplace';          // 'Unable to replace "$1".'
 	const ERROR_RM                = 'errRm';               // 'Unable to remove "$1".'
 	const ERROR_RM_SRC            = 'errRmSrc';            // 'Unable remove source file(s)'
-	const ERROR_UPLOAD            = 'errUpload';           // 'Upload error.'
+	const ERROR_UPLOAD            = 'errUpload';           // 'Upload err.'
 	const ERROR_UPLOAD_FILE       = 'errUploadFile';       // 'Unable to upload "$1".'
 	const ERROR_UPLOAD_NO_FILES   = 'errUploadNoFiles';    // 'No files found for upload.'
 	const ERROR_UPLOAD_TOTAL_SIZE = 'errUploadTotalSize';  // 'Data exceeds the maximum allowed size.'
 	const ERROR_UPLOAD_FILE_SIZE  = 'errUploadFileSize';   // 'File exceeds maximum allowed size.'
 	const ERROR_UPLOAD_FILE_MIME  = 'errUploadMime';       // 'File type not allowed.'
-	const ERROR_UPLOAD_TRANSFER   = 'errUploadTransfer';   // '"$1" transfer error.'
+	const ERROR_UPLOAD_TRANSFER   = 'errUploadTransfer';   // '"$1" transfer err.'
 	// const ERROR_ACCESS_DENIED     = 'errAccess';
 	const ERROR_NOT_REPLACE       = 'errNotReplace';       // Object "$1" already exists at this location and can not be replaced with object of another type.
 	const ERROR_SAVE              = 'errSave';
@@ -400,7 +400,7 @@ class elFinder {
 	/***************************************************************************/
 	
 	/**
-	 * Normalize error messages
+	 * Normalize err messages
 	 *
 	 * @return array
 	 * @author Dmitry (dio) Levashov
@@ -426,7 +426,7 @@ class elFinder {
 	 *  - files        - opened dir content [and dirs tree if $args[tree]]
 	 *  - api          - api version (if $args[init])
 	 *  - uplMaxSize   - if $args[init]
-	 *  - error        - on failed
+	 *  - err        - on failed
 	 *
 	 * @param  array  command arguments
 	 * @return array
@@ -797,7 +797,7 @@ class elFinder {
 		foreach ($files['name'] as $i => $name) {
 			if (($error = $files['error'][$i]) > 0) {				
 				$result['warning'] = $this->error(self::ERROR_UPLOAD_FILE, $name, $error == UPLOAD_ERR_INI_SIZE || $error == UPLOAD_ERR_FORM_SIZE ? self::ERROR_UPLOAD_FILE_SIZE : self::ERROR_UPLOAD_TRANSFER);
-				$this->uploadDebug = 'Upload error code: '.$error;
+				$this->uploadDebug = 'Upload err code: '.$error;
 				break;
 			}
 			
@@ -805,7 +805,7 @@ class elFinder {
 			
 			if (($fp = fopen($tmpname, 'rb')) == false) {
 				$result['warning'] = $this->error(self::ERROR_UPLOAD_FILE, $name, self::ERROR_UPLOAD_TRANSFER);
-				$this->uploadDebug = 'Upload error: unable open tmp file';
+				$this->uploadDebug = 'Upload err: unable open tmp file';
 				break;
 			}
 			

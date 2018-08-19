@@ -6,11 +6,6 @@
     <form data-toggle="validator" method="POST" id="form-add-city">
         <div class="header">
             <h2><?php echo $title ?></h2>
-            <div class="side pull-right">
-                <button class="btn btn-default btn-clean" onClick="clear_form('#validate_custom');" type="button">Clear
-                    form
-                </button>
-            </div>
         </div>
         <div class="content controls">
             <div class="form-row">
@@ -34,7 +29,7 @@
             <div class="side pull-right">
                 <div class="btn-group">
                     <button class="btn btn-default" type="button"
-                            onclick="window.location = '<?php echo base_url() ?>master/address/kota'">Batal
+                            onclick="window.location = '<?php echo base_url() ?>area/address/city'">Batal
                     </button>
                     <button class="btn btn-primary pull-right" type="submit">Simpan</button>
                 </div>

@@ -20,7 +20,7 @@
     function setProvinsi() {
         $.ajax({
             type: "GET",
-            url: "/master/province/getProvince",
+            url: "<?PHP echo base_url()?>area/province/getData",
             success: function (data) {
                 var result = JSON.parse(data);
 
@@ -66,7 +66,7 @@
         console.log(dataSend);
         $.ajax({
             type: "POST",
-            url: "/master/city/editCity",
+            url: "<?PHP echo base_url()?>area/city/editCity",
             data: dataSend,
             success: function (data) {
                 var data = JSON.parse(data);

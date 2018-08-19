@@ -1,7 +1,7 @@
 <script>
     // Document ready
     $(function(){
-        setKecamatan();
+        setProvince()
     })
 
     function show_notif(tipe, message)
@@ -14,11 +14,75 @@
         $("#respon_server .message").html(message);
         $("#respon_server").show('slow');
     }
-    
-    function setKecamatan(){
+    function setProvince()
+    {
         $.ajax({
             type: "GET",
-            url: "/master/district/getDistrict",
+            url: "<?php echo base_url()?>area/province/getData",
+            success: function (data) {
+                var result  = JSON.parse(data);
+
+                //bersihkan dropdown
+                $("#province_id option").remove();
+                $("#province_id").append('<option value="">Pilih Provinsi</option>')
+
+                // looping get city
+                $.each(result.data.content, function (index, value){
+                    $("#province_id").append(
+                        '<option value="'+result.data.content[index].id+'">'+result.data.content[index].name+'</option>'
+                    )
+                })
+            }
+        })
+    }
+
+    $( "#province_id" ).change(function() {
+        var provinceId = $("#province_id").val();
+        if (provinceId != ""){
+            $("#kecamatan_id option").remove();
+            setKota(provinceId);
+        } else {
+            $("#kota_id option").remove();
+            $("#kecamatan_id option").remove();
+        }
+    });
+
+    function setKota(id)
+    {
+        $.ajax({
+            type: "GET",
+            url: "<?php echo base_url()?>area/city/getCityByProvinceId/"+id,
+            success: function (data) {
+                console.log(data)
+                var result  = JSON.parse(data);
+
+                //bersihkan dropdown
+                $("#kota_id option").remove();
+                $("#kota_id").append('<option value="">Pilih Kab / Kota</option>')
+
+                // looping get city
+                $.each(result.data, function (index, value){
+                    $("#kota_id").append(
+                        '<option value="'+result.data[index].id+'">'+result.data[index].name+'</option>'
+                    )
+                })
+            }
+        })
+    }
+
+    $( "#kota_id" ).change(function() {
+        var cityId = $("#kota_id").val();
+        if (cityId != ""){
+            setKecamatan(cityId);
+        } else {
+            $("#kecamatan_id option").remove();
+        }
+    });
+    
+    function setKecamatan(id){
+        $.ajax({
+            type: "GET",
+            url: "<?php echo base_url()?>area/district/getDistrictByCityId/"+id,
             success: function (data) {
                 var result  = JSON.parse(data);
 
@@ -57,14 +121,12 @@
                 data : JSON.stringify(data)
             }
 
-            console.log("simpan kelurahan:" +dataSend);
-
             if (kecamatan_id == ""){
                 show_notif(400, "belum dipilih")
             } else {
                 $.ajax({
                     type: "POST",
-                    url: "/master/villages/saveVillages",
+                    url: "<?php echo base_url()?>area/subdistrict/saveSubdistrict",
                     dataType: "json",
                     data:dataSend,
                     success: function (data){
@@ -81,33 +143,4 @@
 
         }
     });
-    
-    // function save() {
-    //     var code = $("#code").val();
-    //     var name = $("#name").val();
-    //
-    //     var data = {
-    //         code : code,
-    //         name : name,
-    //         district : {
-    //             id : $("#kecamatan_id").val()
-    //         }
-    //     }
-    //
-    //     var dataSend = {
-    //         data : JSON.stringify(data)
-    //     }
-    //
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/master/villages/saveVillages",
-    //         dataType: "json",
-    //         data:dataSend,
-    //         success: function (data){
-    //             show_notif(200, data.message);
-    //             $("#code").val("");
-    //             $("#name").val("");
-    //         }
-    //     })
-    // }
 </script>

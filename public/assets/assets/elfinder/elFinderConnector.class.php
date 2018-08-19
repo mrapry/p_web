@@ -56,7 +56,7 @@ class elFinderConnector {
 		
 		if (!function_exists('json_encode')) {
 			$error = $this->elFinder->error(elFinder::ERROR_CONF, elFinder::ERROR_CONF_NO_JSON);
-			$this->output(array('error' => '{"error":["'.implode('","', $error).'"]}', 'raw' => true));
+			$this->output(array('error' => '{"err":["'.implode('","', $error).'"]}', 'raw' => true));
 		}
 		
 		if (!$this->elFinder->loaded()) {

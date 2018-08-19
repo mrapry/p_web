@@ -513,7 +513,7 @@ class elFinderVolumeLocalFileSystem extends elFinderVolumeDriver {
 	
 	/**
 	 * Create new file and write into it from file pointer.
-	 * Return new file path or false on error.
+	 * Return new file path or false on err.
 	 *
 	 * @param  resource  $fp   file pointer
 	 * @param  string    $dir  target dir path
@@ -751,7 +751,7 @@ class elFinderVolumeLocalFileSystem extends elFinderVolumeDriver {
 				}
 			}
 			
-			// no files - extract error ?
+			// no files - extract err ?
 			if (empty($ls)) {
 				return false;
 			}

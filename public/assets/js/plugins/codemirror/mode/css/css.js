@@ -202,7 +202,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
             style = "error"; // Known property, should be in @mediaType(
           } else {
             // Unknown, expecting keyword or attribute, assuming attribute
-            style = "attribute error";
+            style = "attribute err";
           }
         } else if (context == "@mediaType") {
           if (atMediaTypes.hasOwnProperty(word)) {
@@ -271,7 +271,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
         state.stack[state.stack.length-1] = "@media";
       else if (type == "(") {
         if (context == "@media" || context == "@mediaType") {
-          // Make sure @mediaType is used to avoid error on {
+          // Make sure @mediaType is used to avoid err on {
           state.stack[state.stack.length-1] = "@mediaType";
           state.stack.push("@mediaType(");
         }

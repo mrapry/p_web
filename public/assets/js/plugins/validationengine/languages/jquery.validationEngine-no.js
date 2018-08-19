@@ -151,7 +151,7 @@
                 "ajaxNameCall": {
                     // remote json service location
                     "url": "ajaxValidateFieldName",
-                    // error
+                    // err
                     "alertText": "* Dette navnet er allerede tatt",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
                     "alertTextOk": "* Dette navnet er tilgjengelig",
@@ -161,7 +161,7 @@
 				 "ajaxNameCallPhp": {
 	                    // remote json service location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
-	                    // error
+	                    // err
 	                    "alertText": "* Dette navnet er allerede tatt",
 	                    // speaks by itself
 	                    "alertTextLoad": "* Validerer, vennligst vent"

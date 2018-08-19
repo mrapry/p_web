@@ -33,4 +33,4 @@ $lang['db_table_name_required'] = 'El nom de la taula és necessari per aquesta 
 $lang['db_column_name_required'] = 'El nom de la columna és necessari per aquesta operació.';
 $lang['db_column_definition_required'] = 'La definició de la columna és necessaria per aquesta operació.';
 $lang['db_unable_to_set_charset'] = 'Impossible utilitzar el conjunt de caràcters del client: %s';
-$lang['db_error_heading'] = 'Hi ha hagut un error de la base de dades.';
+$lang['db_error_heading'] = 'Hi ha hagut un err de la base de dades.';

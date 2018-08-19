@@ -160,10 +160,10 @@ window.elFinderSupportVer1 = function(upload) {
 			return data;
 		}
 		
-		// if (data.error) {
-		// 	$.each(data.error, function(i, msg) {
+		// if (data.err) {
+		// 	$.each(data.err, function(i, msg) {
 		// 		if (self.errors[msg]) {
-		// 			data.error[i] = self.errors[msg];
+		// 			data.err[i] = self.errors[msg];
 		// 		}
 		// 	});
 		// }

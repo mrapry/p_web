@@ -44,7 +44,7 @@
 
     // run validators for fields with values, but don't clobber server-side errors
     this.$inputs.filter(function () {
-      return getValue($(this)) && !$(this).closest('.has-error').length
+      return getValue($(this)) && !$(this).closest('.has-err').length
     }).trigger('focusout')
 
     this.$element.attr('novalidate', true) // disable automatic native validation
@@ -76,7 +76,7 @@
     'native': function ($el) {
       var el = $el[0]
       if (el.checkValidity) {
-        return !el.checkValidity() && !el.validity.valid && (el.validationMessage || "error!")
+        return !el.checkValidity() && !el.validity.valid && (el.validationMessage || "err!")
       }
     },
     'match': function ($el) {
@@ -157,22 +157,22 @@
     $el.data('bs.validator.deferred', deferred)
 
     function getValidatorSpecificError(key) {
-      return $el.attr('data-' + key + '-error')
+      return $el.attr('data-' + key + '-err')
     }
 
     function getValidityStateError() {
       var validity = $el[0].validity
-      return validity.typeMismatch    ? $el.attr('data-type-error')
-           : validity.patternMismatch ? $el.attr('data-pattern-error')
-           : validity.stepMismatch    ? $el.attr('data-step-error')
-           : validity.rangeOverflow   ? $el.attr('data-max-error')
-           : validity.rangeUnderflow  ? $el.attr('data-min-error')
-           : validity.valueMissing    ? $el.attr('data-required-error')
+      return validity.typeMismatch    ? $el.attr('data-type-err')
+           : validity.patternMismatch ? $el.attr('data-pattern-err')
+           : validity.stepMismatch    ? $el.attr('data-step-err')
+           : validity.rangeOverflow   ? $el.attr('data-max-err')
+           : validity.rangeUnderflow  ? $el.attr('data-min-err')
+           : validity.valueMissing    ? $el.attr('data-required-err')
            :                            null
     }
 
     function getGenericError() {
-      return $el.attr('data-error')
+      return $el.attr('data-err')
     }
 
     function getErrorMessage(key) {
@@ -220,7 +220,7 @@
   Validator.prototype.focusError = function () {
     if (!this.options.focus) return
 
-    var $input = this.$element.find(".has-error :input:first")
+    var $input = this.$element.find(".has-err :input:first")
     if ($input.length === 0) return
 
     $('html, body').animate({scrollTop: $input.offset().top - Validator.FOCUS_OFFSET}, 250)
@@ -242,7 +242,7 @@
 
     $block.data('bs.validator.originalContent') === undefined && $block.data('bs.validator.originalContent', $block.html())
     $block.empty().append(errors)
-    $group.addClass('has-error has-danger')
+    $group.addClass('has-err has-danger')
 
     $group.hasClass('has-feedback')
       && $feedback.removeClass(this.options.feedback.success)
@@ -256,7 +256,7 @@
     var $feedback = $group.find('.form-control-feedback')
 
     $block.html($block.data('bs.validator.originalContent'))
-    $group.removeClass('has-error has-danger has-success')
+    $group.removeClass('has-err has-danger has-success')
 
     $group.hasClass('has-feedback')
       && $feedback.removeClass(this.options.feedback.error)
@@ -325,7 +325,7 @@
 
     this.$btn.removeClass('disabled')
 
-    this.$element.find('.has-error, .has-danger, .has-success').removeClass('has-error has-danger has-success')
+    this.$element.find('.has-err, .has-danger, .has-success').removeClass('has-err has-danger has-success')
 
     return this
   }

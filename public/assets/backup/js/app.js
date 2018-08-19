@@ -774,7 +774,7 @@
             type: a.sServerMethod,
             error: function (b, c) {
                 var d = r(a, null, "xhr", [a, null, a.jqXHR]);
-                -1 === h.inArray(!0, d) && ("parsererror" == c ? J(a, 0, "Invalid JSON response", 1) : 4 === b.readyState && J(a, 0, "Ajax error", 7));
+                -1 === h.inArray(!0, d) && ("parsererror" == c ? J(a, 0, "Invalid JSON response", 1) : 4 === b.readyState && J(a, 0, "Ajax err", 7));
                 C(a, !1)
             }
         };
@@ -1636,7 +1636,7 @@
     function J(a, b, c, d) {
         c = "DataTables warning: " + (a ? "table id=" + a.sTableId +
             " - " : "") + c;
-        d && (c += ". For more information about this error, please see http://datatables.net/tn/" + d);
+        d && (c += ". For more information about this err, please see http://datatables.net/tn/" + d);
         if (b) E.console && console.log && console.log(c);
         else if (b = m.ext, b = b.sErrMode || b.errMode, a && r(a, null, "error", [a, d, c]), "alert" == b) alert(c);
         else {
@@ -11944,7 +11944,7 @@
                     default:
                         i = d
                 }
-                if (i !== p) throw new Error("Data error")
+                if (i !== p) throw new Error("Data err")
             } while (!n);
             return o.destLen < o.dest.length ? "function" == typeof o.dest.slice ? o.dest.slice(0, o.destLen) : o.dest.subarray(0, o.destLen) : o.dest
         }
@@ -13389,7 +13389,7 @@
             var e, n, i, s, u, l;
             if (this._events || (this._events = {}), "error" === t && (!this._events.error || o(this._events.error) && !this._events.error.length)) {
                 if ((e = arguments[1]) instanceof Error) throw e;
-                var c = new Error('Uncaught, unspecified "error" event. (' + e + ")");
+                var c = new Error('Uncaught, unspecified "err" event. (' + e + ")");
                 throw c.context = e, c
             }
             if (n = this._events[t], a(n)) return !1;
@@ -15232,11 +15232,11 @@
             2: "need dictionary",
             1: "stream end",
             0: "",
-            "-1": "file error",
-            "-2": "stream error",
-            "-3": "data error",
+            "-1": "file err",
+            "-2": "stream err",
+            "-3": "data err",
             "-4": "insufficient memory",
-            "-5": "buffer error",
+            "-5": "buffer err",
             "-6": "incompatible version"
         }
     }, function (t, e) {
@@ -29002,7 +29002,7 @@
                         r = c - e;
                         continue
                     }
-                    if (!(e <= -10)) throw new Error("iconv-lite internal error: invalid decoding table value " + e + " at " + r + "/" + d);
+                    if (!(e <= -10)) throw new Error("iconv-lite internal err: invalid decoding table value " + e + " at " + r + "/" + d);
                     for (var b = this.decodeTableSeq[-10 - e], m = 0; m < b.length - 1; m++) e = b[m], n[p++] = 255 & e, n[p++] = e >> 8;
                     e = b[b.length - 1]
                 }
@@ -35463,7 +35463,7 @@ this.pdfMake.vfs = {
 
                 // run validators for fields with values, but don't clobber server-side errors
                 this.$inputs.filter(function () {
-                    return getValue($(this)) && !$(this).closest('.has-error').length
+                    return getValue($(this)) && !$(this).closest('.has-err').length
                 }).trigger('focusout')
 
                 this.$element.attr('novalidate', true) // disable automatic native validation
@@ -35495,7 +35495,7 @@ this.pdfMake.vfs = {
                 'native': function ($el) {
                     var el = $el[0]
                     if (el.checkValidity) {
-                        return !el.checkValidity() && !el.validity.valid && (el.validationMessage || "error!")
+                        return !el.checkValidity() && !el.validity.valid && (el.validationMessage || "err!")
                     }
                 },
                 'match': function ($el) {
@@ -35578,22 +35578,22 @@ this.pdfMake.vfs = {
                 $el.data('bs.validator.deferred', deferred)
 
                 function getValidatorSpecificError(key) {
-                    return $el.attr('data-' + key + '-error')
+                    return $el.attr('data-' + key + '-err')
                 }
 
                 function getValidityStateError() {
                     var validity = $el[0].validity
-                    return validity.typeMismatch ? $el.attr('data-type-error')
-                        : validity.patternMismatch ? $el.attr('data-pattern-error')
-                            : validity.stepMismatch ? $el.attr('data-step-error')
-                                : validity.rangeOverflow ? $el.attr('data-max-error')
-                                    : validity.rangeUnderflow ? $el.attr('data-min-error')
-                                        : validity.valueMissing ? $el.attr('data-required-error')
+                    return validity.typeMismatch ? $el.attr('data-type-err')
+                        : validity.patternMismatch ? $el.attr('data-pattern-err')
+                            : validity.stepMismatch ? $el.attr('data-step-err')
+                                : validity.rangeOverflow ? $el.attr('data-max-err')
+                                    : validity.rangeUnderflow ? $el.attr('data-min-err')
+                                        : validity.valueMissing ? $el.attr('data-required-err')
                                             : null
                 }
 
                 function getGenericError() {
-                    return $el.attr('data-error')
+                    return $el.attr('data-err')
                 }
 
                 function getErrorMessage(key) {
@@ -35645,7 +35645,7 @@ this.pdfMake.vfs = {
             Validator.prototype.focusError = function () {
                 if (!this.options.focus) return
 
-                var $input = this.$element.find(".has-error :input:first")
+                var $input = this.$element.find(".has-err :input:first")
                 if ($input.length === 0) return
 
                 $('html, body').animate({scrollTop: $input.offset().top - Validator.FOCUS_OFFSET}, 250)
@@ -35669,7 +35669,7 @@ this.pdfMake.vfs = {
 
                 $block.data('bs.validator.originalContent') === undefined && $block.data('bs.validator.originalContent', $block.html())
                 $block.empty().append(errors)
-                $group.addClass('has-error has-danger')
+                $group.addClass('has-err has-danger')
 
                 $group.hasClass('has-feedback')
                 && $feedback.removeClass(this.options.feedback.success)
@@ -35683,7 +35683,7 @@ this.pdfMake.vfs = {
                 var $feedback = $group.find('.form-control-feedback')
 
                 $block.html($block.data('bs.validator.originalContent'))
-                $group.removeClass('has-error has-danger has-success')
+                $group.removeClass('has-err has-danger has-success')
 
                 $group.hasClass('has-feedback')
                 && $feedback.removeClass(this.options.feedback.error)
@@ -35752,7 +35752,7 @@ this.pdfMake.vfs = {
 
                 this.$btn.removeClass('disabled')
 
-                this.$element.find('.has-error, .has-danger, .has-success').removeClass('has-error has-danger has-success')
+                this.$element.find('.has-err, .has-danger, .has-success').removeClass('has-err has-danger has-success')
 
                 return this
             }

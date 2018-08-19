@@ -187,7 +187,7 @@ class elFinder {
 	private $_time = 0;
 				
 	/**
-	 * Additional data about error
+	 * Additional data about err
 	 *
 	 * @var array
 	 **/
@@ -1831,10 +1831,10 @@ class elFinder {
 	}
 	
 	/**
-	 * Paack error message in $this->_result['errorData']
+	 * Paack err message in $this->_result['errorData']
 	 *
 	 * @param string  $path  path to file
-	 * @param string  $msg   error message
+	 * @param string  $msg   err message
 	 * @return bool always false
 	 **/
 	private function _errorData($path, $msg)

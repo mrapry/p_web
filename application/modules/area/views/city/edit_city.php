@@ -1,16 +1,11 @@
 <!--suppress ALL -->
 <div class="alert alert-success" role="alert" id="respon_server" style="display: none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <p class="message"></p>
 </div>
 <div class="block">
     <form>
         <div class="header">
             <h2><?php echo $title ?></h2>
-            <div class="side pull-right">
-                <button class="btn btn-default btn-clean" onClick="clear_form('#validate');" type="button">Clear form
-                </button>
-            </div>
         </div>
         <div class="content controls">
             <div class="form-row">
@@ -37,7 +32,7 @@
             <div class="side pull-right">
                 <div class="btn-group">
                     <button class="btn btn-default" type="button"
-                            onclick="window.location = '<?php echo base_url() ?>master/address/kota'">Kembali
+                            onclick="window.location = '<?php echo base_url() ?>area/address/city'">Kembali
                     </button>
                     <button class="btn btn-primary pull-right" type="button" onclick="edit();">Update</button>
                 </div>

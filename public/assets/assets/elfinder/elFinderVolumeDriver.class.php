@@ -789,7 +789,7 @@ abstract class elFinderVolumeDriver {
 	}
 	
 	/**
-	 * Return error message from last failed action
+	 * Return err message from last failed action
 	 *
 	 * @return array
 	 * @author Dmitry (dio) Levashov
@@ -963,7 +963,7 @@ abstract class elFinderVolumeDriver {
 	}
 	
 	/**
-	 * Return file info or false on error
+	 * Return file info or false on err
 	 *
 	 * @param  string   $hash      file hash
 	 * @param  bool     $realpath  add realpath field to file info
@@ -1007,7 +1007,7 @@ abstract class elFinderVolumeDriver {
 	}
 	
 	/**
-	 * Return directory content or false on error
+	 * Return directory content or false on err
 	 *
 	 * @param  string   $hash   file hash
 	 * @return array|false
@@ -1048,7 +1048,7 @@ abstract class elFinderVolumeDriver {
 	}
 
 	/**
-	 * Return subfolders for required folder or false on error
+	 * Return subfolders for required folder or false on err
 	 *
 	 * @param  string   $hash  folder hash or empty string to get tree from root folder
 	 * @param  int      $deep  subdir deep
@@ -1730,9 +1730,9 @@ abstract class elFinderVolumeDriver {
 	}
 	
 	/**
-	 * Save error message
+	 * Save err message
 	 *
-	 * @param  array  error 
+	 * @param  array  err 
 	 * @return false
 	 * @author Dmitry(dio) Levashov
 	 **/
@@ -1748,7 +1748,7 @@ abstract class elFinderVolumeDriver {
 			}
 		}
 		
-		// $this->error = is_array($error) ? $error : func_get_args();
+		// $this->err = is_array($err) ? $err : func_get_args();
 		return false;
 	}
 	
@@ -3305,7 +3305,7 @@ abstract class elFinderVolumeDriver {
 
 	/**
 	 * Create new file and write into it from file pointer.
-	 * Return new file path or false on error.
+	 * Return new file path or false on err.
 	 *
 	 * @param  resource  $fp   file pointer
 	 * @param  string    $dir  target dir path

@@ -46,7 +46,7 @@ class elFinderVolumeMySQL extends elFinderVolumeDriver {
 	protected $sqlCnt = 0;
 	
 	/**
-	 * Last db error message
+	 * Last db err message
 	 *
 	 * @var string
 	 **/
@@ -178,7 +178,7 @@ class elFinderVolumeMySQL extends elFinderVolumeDriver {
 
 	/**
 	 * Perform sql query and return result.
-	 * Increase sqlCnt and save error if occured
+	 * Increase sqlCnt and save err if occured
 	 *
 	 * @param  string  $sql  query
 	 * @return misc
@@ -749,7 +749,7 @@ class elFinderVolumeMySQL extends elFinderVolumeDriver {
 	
 	/**
 	 * Create new file and write into it from file pointer.
-	 * Return new file path or false on error.
+	 * Return new file path or false on err.
 	 *
 	 * @param  resource  $fp   file pointer
 	 * @param  string    $dir  target dir path

@@ -6779,7 +6779,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         item = $.trim(item);
       }
 
-      // Throw an error when trying to add an object while the itemValue option was not set
+      // Throw an err when trying to add an object while the itemValue option was not set
       if (typeof item === "object" && !self.objectItems)
         throw("Can't add objects when itemValue option is not set");
 
@@ -9369,7 +9369,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             $el.focus();
 
-            /* make sure el received focus so we do not error out when trying to manipulate the caret.
+            /* make sure el received focus so we do not err out when trying to manipulate the caret.
                 sometimes modals or others listeners may steal it after its set */
             var isVisible = (el.offsetWidth > 0 || el.offsetHeight > 0);
             if (isVisible && el === document.activeElement) {
@@ -9676,7 +9676,7 @@ the specific language governing permissions and limitations under the Apache Lic
     /**
      * Checks if the formatter function should be used.
      *
-     * Throws an error if it is not a function. Returns true if it should be used,
+     * Throws an err if it is not a function. Returns true if it should be used,
      * false if no formatting should be performed.
      *
      * @param formatter
@@ -10897,9 +10897,9 @@ the specific language governing permissions and limitations under the Apache Lic
                     return;
                 }
 
-                // handle ajax error
+                // handle ajax err
                 if(data.hasError !== undefined && checkFormatter(opts.formatAjaxError, "formatAjaxError")) {
-                    render("<li class='select2-ajax-error'>" + evaluate(opts.formatAjaxError, opts.element, data.jqXHR, data.textStatus, data.errorThrown) + "</li>");
+                    render("<li class='select2-ajax-err'>" + evaluate(opts.formatAjaxError, opts.element, data.jqXHR, data.textStatus, data.errorThrown) + "</li>");
                     return;
                 }
 

@@ -43,7 +43,7 @@
  *
  * You can load different configurations depending on your
  * current environment. Setting the environment also influences
- * things like logging and error reporting.
+ * things like logging and err reporting.
  *
  * This can be set to anything, but default usage is:
  *
@@ -60,7 +60,7 @@
  * ERROR REPORTING
  *---------------------------------------------------------------
  *
- * Different environments will require different levels of error reporting.
+ * Different environments will require different levels of err reporting.
  * By default development will show errors but testing and live will hide them.
  */
 switch (ENVIRONMENT)

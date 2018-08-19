@@ -33,6 +33,16 @@ class ProvinceModel extends CI_Model
         return $data;
     }
 
+    public function getData()
+    {
+        $data = [];
+        $session_user = $this->session->userdata();
+        $requestUri = $this->config->item("psdkp_address");
+        $requestUri.="/province";
+        $data = $this->psdkp->getData($requestUri);
+        return $data;
+    }
+
     public function getById($id = "")
     {
         $data = [];

@@ -10,7 +10,7 @@
     }
 
     function edit() {
-        var id = <?php echo $provinsi->data->id;?>;
+        var id = <?php echo $province->data->id;?>;
         var code = $("#code").val();
         var name = $("#name").val();
 
@@ -27,7 +27,7 @@
         console.log(dataSend);
         $.ajax({
             type: "POST",
-            url: "/master/province/editProvince",
+            url: "<?PHP echo base_url()?>area/province/editProvince",
             data:dataSend,
             success: function (data) {
                 var data = JSON.parse(data);

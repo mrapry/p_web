@@ -13,9 +13,9 @@ plupload.addI18n({
    'Drag files here.' : 'Sleep bestanden hierheen.',
    'File extension error.': 'Ongeldig bestandstype.',
    'File size error.': 'Bestandsgrootte Error.',
-   'Init error.': 'Initialisatie error.',
+   'Init error.': 'Initialisatie err.',
    'HTTP Error.': 'HTTP Error.',
-   'Security error.': 'Beveiliging error.',
-   'Generic error.': 'Onbekende error.',
+   'Security error.': 'Beveiliging err.',
+   'Generic error.': 'Onbekende err.',
    'IO error.': 'IO error.'
 });

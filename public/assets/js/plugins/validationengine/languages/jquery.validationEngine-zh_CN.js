@@ -138,7 +138,7 @@
                 "ajaxNameCall": {
                     // remote json service location
                     "url": "ajaxValidateFieldName",
-                    // error
+                    // err
                     "alertText": "* 此名称可以使用",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
                     "alertTextOk": "* 此名称已被其他人使用",
@@ -148,7 +148,7 @@
 				 "ajaxNameCallPhp": {
 	                    // remote json service location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
-	                    // error
+	                    // err
 	                    "alertText": "* 此名称已被其他人使用",
 	                    // speaks by itself
 	                    "alertTextLoad": "* 正在确认名称是否有其他人使用，请稍等。"

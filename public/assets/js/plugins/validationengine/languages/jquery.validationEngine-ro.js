@@ -138,7 +138,7 @@
                 "ajaxNameCall": {
                     // remote json service location
                     "url": "ajaxValidateFieldName",
-                    // error
+                    // err
                     "alertText": "* Numele nu este disponibil",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
                     "alertTextOk": "* Numele este disponibil",
@@ -148,7 +148,7 @@
                 "ajaxNameCallPhp": {
                         // remote json service location
                         "url": "phpajax/ajaxValidateFieldName.php",
-                        // error
+                        // err
                         "alertText": "* Numele nu este disponibil",
                         // speaks by itself
                         "alertTextLoad": "* Se efectueaza validarea. Asteapta..."
